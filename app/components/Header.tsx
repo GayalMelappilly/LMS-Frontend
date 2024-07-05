@@ -40,7 +40,7 @@ const Header: FC<Props> = ({ activeItem, setOpen }) => {
                     <div className="w-full h-[80px] flex items-center justify-between p-3">
                         <div>
                             <Link href={'/'} className={'text-[25px] font-Poppins font-[500] text-black dark:text-white'}>
-                                eLearning
+                                Learnify
                             </Link>
                         </div>
                         <div className="flex items-center">
