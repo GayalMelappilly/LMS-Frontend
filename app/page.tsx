@@ -10,8 +10,7 @@ const Page:FC<Props> = () => {
 
   const [open, setOpen] = useState(false)
   const [activeItem, setActiveItem] = useState(0)
-
-
+  const [route, setRoute] = useState('Login')
   
   return (
     <div>
@@ -24,6 +23,8 @@ const Page:FC<Props> = () => {
         open={open}
         setOpen={setOpen}
         activeItem={activeItem}
+        setRoute={setRoute}
+        route={route}
       />
       <Hero />
     </div>
