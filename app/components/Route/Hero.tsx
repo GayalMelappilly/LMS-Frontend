@@ -8,20 +8,20 @@ type Props = {}
 const Hero: FC<Props> = (props) => {
     return (
         <div className='w-full 1000px:flex items-center'>
-            <div className="flex 1000px:flex-row 800px:flex-row 400px:flex-col">
-                <div className='1000px:w-[40%] 800px:w-full 400px:w-full flex 1000px:min-h-screen 800px:min-h-screen items-center justify-end pt-[70px] 1000px:pt-[0] z-10'>
+            <div className="flex 800px:flex-row 400px:flex-col">
+                <div className='1000px:w-[40%] 400px:w-full flex 800px:min-h-screen items-center justify-end pt-[70px] 800px:pt-0 1000px:pt-0 z-10'>
                     <Image
                         src={require('../../../public/assets/banner-img-1.png')}
                         alt=""
-                        className='object-contain 1100px:max-w-[90%] w-[90%] 1500px:max-w-[85%] 400px:max-w-[50%] 400px:mx-auto h-[auto] z-[10]'
+                        className='object-contain 800px:max-w-full 1100px:max-w-[90%] w-[90%] 1500px:max-w-[85%] 400px:max-w-[50%] 400px:mx-auto h-[auto] z-[10]'
                     />
                 </div>
-                <div className='1000px:w-[60%] flex flex-col items-center 1000px:mt-[30px] 800px:mt-[70px] text-center 800px:text-left mt-[150px] 400px:mt-10 400px:px-10 pt-[50px] 400px:pt-0'>
-                    <h2 className='dark:text-white text-[#000000c7] text-[50px] px-3 w-full 1000px:text-[60px] 800px:text-[40px] 400px:text-[40px] font-[600] font-Josefin py-2 leading-tight'>
+                <div className='1000px:w-[60%] flex flex-col items-center 1000px:mt-[60px] 800px:mt-[70px] text-center 1000px:text-left 800px:text-center mt-[150px] 400px:mt-10 400px:px-10 pt-[50px] 400px:pt-0'>
+                    <h2 className='dark:text-white text-[#000000c7] text-[50px] px-3 w-full 1000px:text-[40px] 800px:text-[35px] 400px:text-[40px] font-[600] font-Josefin py-2 leading-tight'>
                         Improve your Online Learning Experience Better Instantly
                     </h2>
                     <br />
-                    <p className='dark:text-[#edfff4] text-[#000000ac] font-Josefin font-[600] text-[18px] 1500px:!w-[55%] 1100px:!w-[78%]'>
+                    <p className='dark:text-[#edfff4] text-[#000000ac] font-Josefin font-[600] text-[18px] 800px:text-[17px] 1000px:text-[17px] 1500px:!w-[55%] 1100px:!w-[78%]'>
                         We have 40k+ Online Courses & 500k+ Online registered students. Find your desired Courses from them.
                     </p>
                     <br />
