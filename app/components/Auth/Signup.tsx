@@ -12,15 +12,17 @@ type Props = {
 }
 
 const schema = Yup.object().shape({
+    name: Yup.string().required('Please enter your name!'),
     email: Yup.string().required('Please enter your email address!').email('Invalid email'),
     password: Yup.string().required('Please enter your password!').min(6)
 })
 
-const Login: FC<Props> = ({setRoute}) => {
+const Signup: FC<Props> = ({ setRoute }) => {
     const [show, setShow] = useState(false)
 
     const formik = useFormik({
         initialValues: {
+            name: '',
             email: '',
             password: ''
         },
@@ -35,10 +37,27 @@ const Login: FC<Props> = ({setRoute}) => {
     return (
         <div className='w-full'>
             <h1 className={`${styles.title}`}>
-                Login with Learnify
+                Get started with Learnify
             </h1>
             <br />
             <form onSubmit={handleSubmit}>
+                <div className='mb-4'>
+                    <label className={`${styles.label}`} htmlFor="email">
+                        Enter your Name
+                    </label>
+                    <input
+                        type="text"
+                        name='name'
+                        value={values.name}
+                        onChange={handleChange}
+                        id='name'
+                        placeholder='Name here'
+                        className={`${errors.name && touched.name && "border-red-500"} ${styles.input}`}
+                    />
+                    {errors.name && touched.name && (
+                        <span className='text-red-500 pt-2 block'>{errors.name}</span>
+                    )}
+                </div>
                 <label className={`${styles.label}`} htmlFor="email">
                     Enter your Email
                 </label>
@@ -54,7 +73,7 @@ const Login: FC<Props> = ({setRoute}) => {
                 {errors.email && touched.email && (
                     <span className='text-red-500 pt-2 block'>{errors.email}</span>
                 )}
-                <div className='w-full mt-5 relative mb-1'>
+                <div className='w-full mt-4 relative mb-1'>
                     <label className={`${styles.label}`} htmlFor="email">
                         Enter your password
                     </label>
@@ -80,14 +99,14 @@ const Login: FC<Props> = ({setRoute}) => {
                             onClick={() => setShow(false)}
                         />
                     )}
-                    {errors.password && touched.password && (
-                        <span className='text-red-500 pt-2 block'>{errors.password}</span>
-                    )}
                 </div>
+                {errors.password && touched.password && (
+                    <span className='text-red-500 pt-2 block'>{errors.password}</span>
+                )}
                 <div className='w-full mt-5'>
                     <input
                         type="submit"
-                        value="Login"
+                        value="Sign Up"
                         className={`${styles.button}`}
                     />
                 </div>
@@ -98,12 +117,12 @@ const Login: FC<Props> = ({setRoute}) => {
                 </h5>
                 <div className='flex items-center justify-center my-3'>
                     <FcGoogle size={30} className='mr-2 cursor-pointer' />
-                    <AiFillGithub size={30} className='ml-2 cursor-pointer' /> 
+                    <AiFillGithub size={30} className='ml-2 cursor-pointer' />
                 </div>
                 <h5 className='text-center pt-4 font-Poppins text-[14px]'>
-                    Not have any account?{' '}
-                    <span className='text-[#2190ff] pl-1 cursor-pointer' onClick={() => setRoute('Sign-Up')}>
-                        Sign up
+                    Already have an account?{' '}
+                    <span className='text-[#2190ff] pl-1 cursor-pointer' onClick={() => setRoute('Login')}>
+                        Sign In
                     </span>
                 </h5>
             </form>
@@ -112,4 +131,4 @@ const Login: FC<Props> = ({setRoute}) => {
     )
 }
 
-export default Login
+export default Signup
