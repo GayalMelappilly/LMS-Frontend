@@ -1,9 +1,11 @@
 import React, { FC, useState } from 'react'
-import {useFormik} from 'formik'
+import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import {AiOutlineEye, AiOutlineEyeInvisible, AiFillGithub} from 'react-icons/ai'
-import {FcGoogle} from 'react-icons/fc'
+import { AiOutlineEye, AiOutlineEyeInvisible, AiFillGithub } from 'react-icons/ai'
+import { FcGoogle } from 'react-icons/fc'
 import { styles } from '../../../app/styles/style'
+import { error } from 'console'
+import { Span } from 'next/dist/trace'
 
 type Props = {
     setRoute: (route: string) => void
@@ -14,7 +16,7 @@ const schema = Yup.object().shape({
     password: Yup.string().required('Please enter your password!').min(6)
 })
 
-const Login:FC<Props> = (props: Props) => {
+const Login: FC<Props> = ({setRoute}) => {
     const [show, setShow] = useState(false)
 
     const formik = useFormik({
@@ -23,20 +25,91 @@ const Login:FC<Props> = (props: Props) => {
             password: ''
         },
         validationSchema: schema,
-        onSubmit: async({email, password}) => {
+        onSubmit: async ({ email, password }) => {
             console.log(email, password)
         }
     })
 
-    const {errors, touched, values, handleChange, handleSubmit} = formik
+    const { errors, touched, values, handleChange, handleSubmit } = formik
 
-  return (
-    <div className='w-full'>
-        <h1 className={`${styles.title}`}>
-            Login with Learnify
-        </h1>
-    </div>
-  )
+    return (
+        <div className='w-full'>
+            <h1 className={`${styles.title}`}>
+                Login with Learnify
+            </h1>
+            <br />
+            <form onSubmit={handleSubmit}>
+                <label className={`${styles.label}`} htmlFor="email">
+                    Enter your Email
+                </label>
+                <input
+                    type="email"
+                    name='email'
+                    value={values.email}
+                    onChange={handleChange}
+                    id='email'
+                    placeholder='someone@gmail.com'
+                    className={`${errors.email && touched.email && "border-red-500"} ${styles.input}`}
+                />
+                {errors.email && touched.email && (
+                    <span className='text-red-500 pt-2 block'>{errors.email}</span>
+                )}
+                <div className='w-full mt-5 relative mb-1'>
+                    <label className={`${styles.label}`} htmlFor="email">
+                        Enter your password
+                    </label>
+                    <input
+                        type="password"
+                        name='password'
+                        value={values.password}
+                        onChange={handleChange}
+                        id='password'
+                        placeholder='password'
+                        className={`${errors.password && touched.password && "border-red-500"} ${styles.input}`}
+                    />
+                    {!show ? (
+                        <AiOutlineEyeInvisible
+                            size={20}
+                            className='absolute bottom-2.5 right-2 z-1 cursor-pointer'
+                            onClick={() => setShow(true)}
+                        />
+                    ) : (
+                        <AiOutlineEye
+                            size={20}
+                            className='absolute bottom-2.5 right-2 z-1 cursor-pointer'
+                            onClick={() => setShow(false)}
+                        />
+                    )}
+                    {errors.password && touched.password && (
+                        <span className='text-red-500 pt-2 block'>{errors.password}</span>
+                    )}
+                </div>
+                <div className='w-full mt-5'>
+                    <input
+                        type="submit"
+                        value="Login"
+                        className={`${styles.button}`}
+                    />
+                </div>
+                <br />
+                <hr />
+                <h5 className='text-center pt-4 font-Poppins text-[14px] text-black dark:text-white'>
+                    Continue with
+                </h5>
+                <div className='flex items-center justify-center my-3'>
+                    <FcGoogle size={30} className='mr-2 cursor-pointer' />
+                    <AiFillGithub size={30} className='ml-2 cursor-pointer' /> 
+                </div>
+                <h5 className='text-center pt-4 font-Poppins text-[14px]'>
+                    Not have any account?{' '}
+                    <span className='text-[#2190ff] pl-1 cursor-pointer' onClick={() => setRoute('Sign-up')}>
+                        Sign up
+                    </span>
+                </h5>
+            </form>
+            <br />
+        </div>
+    )
 }
 
 export default Login
