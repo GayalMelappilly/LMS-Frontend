@@ -16,7 +16,7 @@ const schema = Yup.object().shape({
     password: Yup.string().required('Please enter your password!').min(6)
 })
 
-const Login: FC<Props> = ({setRoute}) => {
+const Login: FC<Props> = ({ setRoute }) => {
     const [show, setShow] = useState(false)
 
     const formik = useFormik({
@@ -93,12 +93,10 @@ const Login: FC<Props> = ({setRoute}) => {
                 </div>
                 <br />
                 <hr />
-                <h5 className='text-center pt-4 font-Poppins text-[14px] text-black dark:text-white'>
-                    Continue with
-                </h5>
-                <div className='flex items-center justify-center my-3'>
-                    <FcGoogle size={30} className='mr-2 cursor-pointer' />
-                    <AiFillGithub size={30} className='ml-2 cursor-pointer' /> 
+                <div className='w-full mt-5 flex items-center justify-center'>
+                    <button className={`${styles.socialButton} bg-slate-200 w-[49%] relative text-black`}><FcGoogle size={25} className='cursor-pointer absolute start-2' /><span className='absolute end-4'>Continue with Google</span></button>
+                    <div className='mx-1'></div>
+                    <button className={`${styles.socialButton} bg-stone-950 w-[49%] relative text-white`}><AiFillGithub size={25} className='cursor-pointer absolute start-2' /><span className='absolute end-4'>Continue with GitHub</span></button>
                 </div>
                 <h5 className='text-center pt-4 font-Poppins text-[14px]'>
                     Not have any account?{' '}
