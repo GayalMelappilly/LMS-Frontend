@@ -4,10 +4,9 @@ import * as Yup from 'yup'
 import { AiOutlineEye, AiOutlineEyeInvisible, AiFillGithub } from 'react-icons/ai'
 import { FcGoogle } from 'react-icons/fc'
 import { styles } from '../../../app/styles/style'
-import { error } from 'console'
-import { Span } from 'next/dist/trace'
 import { useLoginMutation } from '@/redux/features/auth/authApi'
 import toast from 'react-hot-toast'
+import { signIn } from 'next-auth/react'
 
 type Props = {
     setRoute: (route: string) => void
@@ -111,9 +110,11 @@ const Login: FC<Props> = ({ setRoute, setOpen }) => {
                 <br />
                 <hr />
                 <div className='w-full mt-5 flex items-center justify-center'>
-                    <button className={`${styles.socialButton} bg-slate-200 w-[49%] relative text-black`}><FcGoogle size={25} className='cursor-pointer absolute start-2' /><span className='absolute end-4'>Continue with Google</span></button>
+                    <button className={`${styles.socialButton} bg-slate-200 w-[49%] relative text-black`}
+                     onClick={() => signIn('google')}><FcGoogle size={25} className='cursor-pointer absolute start-2' /><span className='absolute end-4'>Continue with Google</span></button>
                     <div className='mx-1'></div>
-                    <button className={`${styles.socialButton} bg-stone-950 w-[49%] relative text-white`}><AiFillGithub size={25} className='cursor-pointer absolute start-2' /><span className='absolute end-4'>Continue with GitHub</span></button>
+                    <button className={`${styles.socialButton} bg-stone-950 w-[49%] relative text-white`}
+                     onClick={() => signIn('github')}><AiFillGithub size={25} className='cursor-pointer absolute start-2' /><span className='absolute end-4'>Continue with GitHub</span></button>
                 </div>
                 <h5 className='text-center pt-4 font-Poppins text-[14px]'>
                     Not have any account?{' '}
