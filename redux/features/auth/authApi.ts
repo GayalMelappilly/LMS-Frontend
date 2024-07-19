@@ -1,4 +1,3 @@
-import build from "next/dist/build";
 import { apiSlice } from "../api/apiSlice";
 import { userRegistration } from "./authSlice";
 
@@ -26,14 +25,14 @@ export const authApi = apiSlice.injectEndpoints({
                             token: result.data.activationToken,  
                         })
                     )
-                }catch(err: any){
-                    console.log(err)
+                }catch(error: any){
+                    console.log(error)
                 }
             }
         }),
         activation: builder.mutation({
             query: ({activation_token, activation_code}) => ({
-                url: '/activate-user',
+                url: 'activate-user',
                 method: "POST",
                 body: {
                     activation_token,

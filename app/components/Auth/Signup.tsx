@@ -4,8 +4,6 @@ import * as Yup from 'yup'
 import { AiOutlineEye, AiOutlineEyeInvisible, AiFillGithub } from 'react-icons/ai'
 import { FcGoogle } from 'react-icons/fc'
 import { styles } from '../../../app/styles/style'
-import { error } from 'console'
-import { Span } from 'next/dist/trace'
 import { useRegisterMutation } from '@/redux/features/auth/authApi'
 import toast from 'react-hot-toast'
 
@@ -21,7 +19,7 @@ const schema = Yup.object().shape({
 
 const Signup: FC<Props> = ({ setRoute }) => {
     const [show, setShow] = useState(false)
-    const [register, {data, isSuccess, error}] = useRegisterMutation()
+    const [register, {isError, data, error, isSuccess}] = useRegisterMutation()
 
     useEffect(()=>{
         if(isSuccess){
