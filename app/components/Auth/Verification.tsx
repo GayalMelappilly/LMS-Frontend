@@ -1,7 +1,9 @@
 import { styles } from '@/app/styles/style'
-import React, { FC, useRef, useState } from 'react'
+import { useActivationMutation } from '@/redux/features/auth/authApi'
+import React, { FC, useEffect, useRef, useState } from 'react'
 import { toast } from 'react-hot-toast'
 import { VscWorkspaceTrusted } from 'react-icons/vsc'
+import { useSelector } from 'react-redux'
 
 type Props = {
     setRoute: (route: string) => void
@@ -15,7 +17,26 @@ type VerifyNumber = {
 }
 
 const Verification: FC<Props> = ({ setRoute }) => {
+    const { token } = useSelector((state: any) => state.auth)
+    const [activation, { isSuccess, error }] = useActivationMutation()
     const [invalidError, setInvalidError] = useState<boolean>(false)
+
+    useEffect(() => {
+        if (isSuccess) {
+            toast.success("Account activated successfully")
+            setRoute("login")
+        }
+        if (error) {
+            if("data" in error){
+                const errorData = error as any
+                toast.error(errorData.data.message)
+                setInvalidError(true)
+            }else{
+                console.log("An error occured", error)
+            }
+        }
+    }, [isSuccess, error])
+
     const inputRefs = [
         useRef<HTMLInputElement>(null),
         useRef<HTMLInputElement>(null),
@@ -31,7 +52,12 @@ const Verification: FC<Props> = ({ setRoute }) => {
     })
 
     const verificationHandler = async () => {
-        setInvalidError(true)
+        const verificationNumber = Object.values(verifyNumber).join("")
+        if(verificationNumber.length !== 4){
+            setInvalidError(true)
+            return;
+        }
+        await activation({ activation_token: token, activation_code: verificationNumber })
     }
 
     const handleInputChange = (index: number, value: string) => {
@@ -83,7 +109,7 @@ const Verification: FC<Props> = ({ setRoute }) => {
             </div>
             <br />
             <h5 className='text-center pt-4 font-Poppins text-[14px] text-black dark:text-white'>
-                Go back to sign in? <span className='text-[#2190ff] pl-1 cursor-pointer'>Sign in</span> 
+                Go back to sign in? <span className='text-[#2190ff] pl-1 cursor-pointer'>Sign in</span>
             </h5>
         </div >
     )
