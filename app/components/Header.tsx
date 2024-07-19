@@ -9,7 +9,7 @@ import SignUp from '../components/Auth/Signup'
 import Verification from '../components/Auth/Verification'
 import { useSelector } from 'react-redux'
 import Image from 'next/image'
-import avatar from '../../public/assets/user (2).png'
+import avatar from '../../public/assets/avatar.png'
 
 type Props = {
     open: boolean,
@@ -68,13 +68,13 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
                             </div>
                             {
                                 user ? (
-                                    <>
+                                    <Link href={'/profile'}>
                                         <Image
                                             src={user.avatar ? user.avatar : avatar}
                                             alt=''
                                             className='w-[30px] h-[30px] ml-4 cursor-pointer'
                                         />
-                                    </>
+                                    </Link>
                                 ) : (
                                     <HiOutlineUserCircle
                                         size={25}
