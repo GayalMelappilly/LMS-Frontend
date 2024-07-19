@@ -7,6 +7,9 @@ import CustomModel from '../utils/CustomModel'
 import Login from '../components/Auth/Login'
 import SignUp from '../components/Auth/Signup'
 import Verification from '../components/Auth/Verification'
+import { useSelector } from 'react-redux'
+import Image from 'next/image'
+import avatar from '../../public/assets/user (2).png'
 
 type Props = {
     open: boolean,
@@ -16,10 +19,11 @@ type Props = {
     setRoute: (route: string) => void
 }
 
-const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute}) => {
+const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
 
     const [active, setActive] = useState(false)
     const [openSidebar, setOpenSidebar] = useState(false)
+    const { user } = useSelector((state: any) => state.auth)
 
     if (typeof window !== 'undefined') {
         window.addEventListener('scroll', () => {
@@ -62,11 +66,24 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute}) => {
                                     onClick={() => setOpenSidebar(true)}
                                 />
                             </div>
-                            <HiOutlineUserCircle
-                                size={25}
-                                className='hidden 800px:block cursor-pointer dark:text-white text-black'
-                                onClick={() => setOpen(true)}
-                            />
+                            {
+                                user ? (
+                                    <>
+                                        <Image
+                                            src={user.avatar ? user.avatar : avatar}
+                                            alt=''
+                                            className='w-[30px] h-[30px] ml-4 cursor-pointer'
+                                        />
+                                    </>
+                                ) : (
+                                    <HiOutlineUserCircle
+                                        size={25}
+                                        className='hidden 800px:block cursor-pointer dark:text-white text-black'
+                                        onClick={() => setOpen(true)}
+                                    />
+                                )
+                            }
+
                         </div>
                     </div>
                 </div>
