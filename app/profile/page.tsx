@@ -18,7 +18,7 @@ const page: FC<Props> = () => {
     const {user} = useSelector((state: any) => state.auth)
 
     return (
-        <div>
+        <div className='h-screen'>
             <Protected>
                 <Heading
                     title={`${user?.name} profile`}
