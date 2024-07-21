@@ -2,9 +2,12 @@
 
 import { styles } from '@/app/styles/style'
 import Image from 'next/image'
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { AiOutlineCamera } from 'react-icons/ai'
 import avatarIcon from '../../../public/assets/avatar.png'
+import { useUpdateAvatarMutation } from '@/redux/features/user/userApi'
+import toast from 'react-hot-toast'
+import { useLoadUserQuery } from '@/redux/features/api/apiSlice'
 
 type Props = {
     avatar: string | null,
@@ -14,10 +17,35 @@ type Props = {
 const ProfileInfo: FC<Props> = ({avatar, user}) => {
 
     const [name, setName] = useState(user && user.name)
+    const [updateAvatar, {isSuccess, error}] = useUpdateAvatarMutation()
+    const [loadUser, setLoadUser] = useState(false)
+    const {} = useLoadUserQuery(undefined, {skip: loadUser ? false : true})
 
     const imageHandler = async (e: any) => {
-        console.log('g')
+        
+        const file = e.target.files[0]
+
+        const fileReader = new FileReader()
+
+        fileReader.onload = () => {
+            if(fileReader.readyState === 2){
+                const avatar = fileReader.result
+                updateAvatar(
+                    avatar
+                )
+            }
+        }
+        fileReader.readAsDataURL(e.target.files[0])
     }
+
+    useEffect(()=>{
+        if(isSuccess){
+            setLoadUser(true)
+        }
+        if(error){
+            console.log(error)
+        }
+    },[isSuccess, error])
 
     const handleSubmit = async (e: any) => {
         console.log('g')
@@ -30,6 +58,8 @@ const ProfileInfo: FC<Props> = ({avatar, user}) => {
                 <Image
                     src={user.avatar || avatar ? user.avatar.url || avatar : avatarIcon}
                     alt=''
+                    width={120} 
+                    height={120}
                     className='w-[120px] h-[120px] rounded-full cursor-pointer border-[3px] border-[#37a38a]'
                 />
                 <input 
@@ -48,12 +78,11 @@ const ProfileInfo: FC<Props> = ({avatar, user}) => {
             </div>
         </div>
         <br />
-        <br />
         <div className='w-full pl-6 800px:pl-10'>
             <form onSubmit={handleSubmit}>
                 <div className="800px:w-[50%] m-auto block pb-4">
                     <div className='w-[100%]'>
-                        <label className='block pb-2'>Full Name</label>
+                        <label className='block'>Full Name</label>
                         <input
                             type="text"
                             className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
@@ -63,7 +92,7 @@ const ProfileInfo: FC<Props> = ({avatar, user}) => {
                         />
                     </div>
                     <div className='w-[100%]'>
-                        <label className='block pb-2'>Email Address</label>
+                        <label className='block pt-5'>Email Address</label>
                         <input
                             type="email"
                             className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
