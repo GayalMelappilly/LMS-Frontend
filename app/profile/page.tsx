@@ -21,7 +21,7 @@ const page: FC<Props> = () => {
         <div className='h-screen'>
             <Protected>
                 <Heading
-                    title={`${user?.name} profile`}
+                    title={`${user?.name} profile - Learnify`}
                     description='eLearning is platform for students to learn and get help from teachers'
                     keywords='Programming, MERN, Redux, Machine Learning'
                 />
