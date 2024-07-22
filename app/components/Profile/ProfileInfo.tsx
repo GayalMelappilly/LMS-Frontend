@@ -7,6 +7,7 @@ import { AiOutlineCamera } from 'react-icons/ai'
 import avatarIcon from '../../../public/assets/avatar.png'
 import { useEditProfileMutation, useUpdateAvatarMutation } from '@/redux/features/user/userApi'
 import { useLoadUserQuery } from '@/redux/features/api/apiSlice'
+import toast from 'react-hot-toast'
 
 type Props = {
     avatar: string | null,
@@ -44,6 +45,9 @@ const ProfileInfo: FC<Props> = ({avatar, user}) => {
         }
         if(error || updateError){
             console.log(error)
+        }
+        if(success){
+            toast.success("Profile updated successfully.")
         }
     },[isSuccess, error, success, updateError])
 
