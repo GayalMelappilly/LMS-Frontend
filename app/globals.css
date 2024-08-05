@@ -26,22 +26,29 @@ body {
 }
 
 @keyframes changeBackgroundColor {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   16.67% {
     opacity: 0.9
   }
+
   33.33% {
     opacity: 0.8;
   }
+
   50% {
     opacity: 0.6
   }
-  66.67%{
+
+  66.67% {
     opacity: 0.5
   }
-  83.33%{
+
+  83.33% {
     opacity: 0.4
   }
 }
@@ -50,18 +57,23 @@ body {
   0% {
     transform: translateX(0);
   }
+
   20% {
     transform: translateX(-2px);
   }
+
   40% {
     transform: translateX(2px);
   }
+
   60% {
     transform: translateX(-2px);
   }
+
   80% {
     transform: translateX(2px);
   }
+
   100% {
     transform: translateX(0);
   }
@@ -75,6 +87,22 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1771c6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f5f5f5b0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #32ae7e;
 }
 
 input[type="number"] {
