@@ -26,7 +26,7 @@ const CreateCourse = (props: Props) => {
         toast.error(errorMessage.data.message);
       }
     }
-  }, [isSuccess, error]);
+  }, [isLoading, isSuccess, error]);
 
   const [active, setActive] = useState(0);
   const [courseInfo, setCourseInfo] = useState({
