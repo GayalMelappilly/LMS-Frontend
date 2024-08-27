@@ -12,6 +12,7 @@ import Loader from "../../Loader/Loader";
 import { styles } from "@/app/styles/style";
 import { toast } from "react-hot-toast";
 import Link from "next/link";
+import {format} from 'timeago.js'
 
 type Props = {};
 
@@ -80,7 +81,7 @@ const AllCourses = (props: Props) => {
           title: item.name,
           ratings: item.ratings,
           purchased: item.purchased,
-          created_at: item.createdAt,
+          created_at: format(item.createdAt),
         });
       });
   }
@@ -109,7 +110,7 @@ const AllCourses = (props: Props) => {
       {isLoading ? (
         <Loader />
       ) : (
-        <Box m="20px">
+        <Box m="0 40px 0 80px">
           <Box
             m="40px 0 0 0"
             height="80vh"
@@ -128,8 +129,8 @@ const AllCourses = (props: Props) => {
                 color: theme === "dark" ? "#fff" : "#000",
                 borderBottom:
                   theme === "dark"
-                    ? "1px solid #ffffff30!important"
-                    : "1px solid #ccc!important",
+                    ? "1px solid #ffffff30 !important"
+                    : "1px solid #ccc !important",
               },
               "& .MuiTablePagination-root": {
                 color: theme === "dark" ? "#fff" : "#000",
@@ -140,18 +141,18 @@ const AllCourses = (props: Props) => {
               "& .name-column--cell": {
                 color: theme === "dark" ? "#fff" : "#000",
               },
-              "& .MuiDataGrid-columnHeaders": {
+              "& .MuiDataGrid-columnHeader": {
                 backgroundColor: theme === "dark" ? "#3e4396" : "#A4A9FC",
                 borderBottom: "none",
                 color: theme === "dark" ? "#fff" : "#000",
               },
-              "& .MuiDataGrid-virtualScroller": {
-                backgroundColor: theme === "dark" ? "#1F2A40" : "#F2F0F0",
+              "& .css-1w53k9d-MuiDataGrid-overlay": {
+                backgroundColor: theme === "dark" ? "#1F2A40 !important" : "#F2F0F0 !important",
               },
               "& .MuiDataGrid-footerContainer": {
-                color: theme === "dark" ? "#fff" : "#000",
-                borderTop: "none",
                 backgroundColor: theme === "dark" ? "#3e4396" : "#A4A9FC",
+                color: theme === "dark" ? "#fff" : "#000",
+                borderTop: "none"
               },
               "& .MuiCheckbox-root": {
                 color:
