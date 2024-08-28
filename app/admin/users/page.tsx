@@ -5,7 +5,7 @@ import AdminProtected from '@/app/hooks/adminProtected'
 import Heading from '@/app/utils/Heading'
 import React from 'react'
 import AdminSidebar from '../../components/Admin/sidebar/AdminSidebar'
-import AllCourses from '../../components/Admin/course/AllCourses'
+import AllUsers from '../../components/Admin/course/AllUsers'
 
 type Props = {}
 
@@ -24,7 +24,7 @@ const page = (props: Props) => {
                     </div>
                     <div className='w-[85%]'>
                         <DashboardHeader />
-                        <AllCourses />
+                        <AllUsers />
                     </div>
                 </div>
             </AdminProtected>

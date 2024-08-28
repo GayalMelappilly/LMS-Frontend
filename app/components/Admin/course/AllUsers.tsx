@@ -8,6 +8,7 @@ import {
   useDeleteCourseMutation,
   useGetAllCoursesQuery,
 } from "@/redux/features/courses/coursesApi";
+import { useGetAllUsersQuery } from "@/redux/features/user/userApi";
 import Loader from "../../Loader/Loader";
 import { styles } from "@/app/styles/style";
 import { toast } from "react-hot-toast";
@@ -16,12 +17,12 @@ import {format} from 'timeago.js'
 
 type Props = {};
 
-const AllCourses = (props: Props) => {
+const AllUsers = (props: Props) => {
   const { theme, setTheme } = useTheme();
   const [open, setOpen] = useState(false);
   const [courseId, setCourseId] = useState("");
 
-  const { isLoading, data, refetch } = useGetAllCoursesQuery(
+  const { isLoading, data, refetch } = useGetAllUsersQuery(
     {},
     { refetchOnMountOrArgChange: true }
   );
@@ -29,24 +30,11 @@ const AllCourses = (props: Props) => {
   const [deleteCourse, { isSuccess, error }] = useDeleteCourseMutation({});
   const columns = [
     { field: "id", headerName: "ID", flex: 0.5 },
-    { field: "title", headerName: "Course Title", flex: 1 },
-    { field: "ratings", headerName: "Ratings", flex: 0.5 },
-    { field: "purchased", headerName: "Purchased", flex: 0.5 },
-    { field: "created_at", headerName: "Created At", flex: 0.5 },
-    {
-      field: "  ",
-      headerName: "Edit",
-      flex: 0.2,
-      renderCell: (params: any) => {
-        return (
-          <>
-            <Link href={`/admin/edit-course/${params.row.id}`}>
-              <FiEdit2 className="dark:text-white text-black my-4" size={20} />
-            </Link>
-          </>
-        );
-      },
-    },
+    { field: "name", headerName: "Name", flex: 0.5 },
+    { field: "email", headerName: "Email", flex: 0.5 },
+    { field: "role", headerName: "Role", flex: 0.5 },
+    { field: "courses", headerName: "Purchased Courses", flex: 0.5 },
+    { field: "created_at", headerName: "Joined At", flex: 0.5},
     {
       field: " ",
       headerName: "Delete",
@@ -75,12 +63,13 @@ const AllCourses = (props: Props) => {
 
   {
     data &&
-      data.courses.forEach((item: any) => {
+      data.users.forEach((item: any) => {
         rows.push({
           id: item._id,
-          title: item.name,
-          ratings: item.ratings,
-          purchased: item.purchased,
+          name: item.name,
+          email: item.email,
+          role: item.role,
+          courses: item.course.length,
           created_at: format(item.createdAt),
         });
       });
@@ -199,4 +188,4 @@ const AllCourses = (props: Props) => {
   );
 };
 
-export default AllCourses;
+export default AllUsers;
