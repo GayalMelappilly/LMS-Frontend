@@ -1,40 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { Box, Button, Modal } from "@mui/material";
-import { AiOutlineDelete } from "react-icons/ai";
+import { AiOutlineDelete, AiOutlineMail } from "react-icons/ai";
 import { useTheme } from "next-themes";
-import { FiEdit2 } from "react-icons/fi";
-import {
-  useDeleteCourseMutation,
-  useGetAllCoursesQuery,
-} from "@/redux/features/courses/coursesApi";
-import { useGetAllUsersQuery } from "@/redux/features/user/userApi";
 import Loader from "../../Loader/Loader";
+import { format } from "timeago.js";
+import {
+  useGetAllUsersQuery,
+} from "@/redux/features/user/userApi";
 import { styles } from "@/app/styles/style";
 import { toast } from "react-hot-toast";
-import Link from "next/link";
-import {format} from 'timeago.js'
 
-type Props = {};
+type Props = {
+  isTeam?: boolean;
+};
 
-const AllUsers = (props: Props) => {
+const AllUsers: FC<Props> = ({ isTeam }) => {
   const { theme, setTheme } = useTheme();
+  const [active, setActive] = useState(false);
+  const [email, setEmail] = useState("");
+  const [role, setRole] = useState("admin");
   const [open, setOpen] = useState(false);
-  const [courseId, setCourseId] = useState("");
+  const [userId, setUserId] = useState("");
 
   const { isLoading, data, refetch } = useGetAllUsersQuery(
     {},
     { refetchOnMountOrArgChange: true }
   );
 
-  const [deleteCourse, { isSuccess, error }] = useDeleteCourseMutation({});
+
   const columns = [
-    { field: "id", headerName: "ID", flex: 0.5 },
+    { field: "id", headerName: "ID", flex: 0.3 },
     { field: "name", headerName: "Name", flex: 0.5 },
     { field: "email", headerName: "Email", flex: 0.5 },
     { field: "role", headerName: "Role", flex: 0.5 },
     { field: "courses", headerName: "Purchased Courses", flex: 0.5 },
-    { field: "created_at", headerName: "Joined At", flex: 0.5},
+    { field: "created_at", headerName: "Joined At", flex: 0.5 },
     {
       field: " ",
       headerName: "Delete",
@@ -45,7 +46,7 @@ const AllUsers = (props: Props) => {
             <Button
               onClick={() => {
                 setOpen(!open);
-                setCourseId(params.row.id);
+                setUserId(params.row.id);
               }}
             >
               <AiOutlineDelete
@@ -57,11 +58,40 @@ const AllUsers = (props: Props) => {
         );
       },
     },
+    {
+      field: "  ",
+      headerName: "Email",
+      flex: 0.2,
+      renderCell: (params: any) => {
+        return (
+          <>
+            <a href={`mailto:${params.row.email}`}>
+              <AiOutlineMail className="dark:text-white text-black my-4" size={20} />
+            </a>
+          </>
+        );
+      },
+    },
   ];
 
   const rows: any = [];
 
-  {
+  if (isTeam) {
+    const newData =
+      data && data.users.filter((item: any) => item.role === "admin");
+
+    newData &&
+      newData.forEach((item: any) => {
+        rows.push({
+          id: item._id,
+          name: item.name,
+          email: item.email,
+          role: item.role,
+          courses: item.course.length,
+          created_at: format(item.createdAt),
+        });
+      });
+  } else {
     data &&
       data.users.forEach((item: any) => {
         rows.push({
@@ -75,27 +105,8 @@ const AllUsers = (props: Props) => {
       });
   }
 
-  useEffect(() => {
-    if (isSuccess) {
-      setOpen(false);
-      refetch();
-      toast.success("Course Deleted Successfully");
-    }
-    if (error) {
-      if ("data" in error) {
-        const errorMessage = error as any;
-        toast.error(errorMessage.data.message);
-      }
-    }
-  }, [isSuccess, error,refetch]);
-
-  const handleDelete = async () => {
-    const id = courseId;
-    await deleteCourse(id);
-  };
-
   return (
-    <div className="mt-[110px]">
+    <div className="mt-[120px]">
       {isLoading ? (
         <Loader />
       ) : (
@@ -174,7 +185,6 @@ const AllUsers = (props: Props) => {
                   </div>
                   <div
                     className={`${styles.button} !w-[120px] h-[30px] bg-[#d63f3f]`}
-                    onClick={handleDelete}
                   >
                     Delete
                   </div>

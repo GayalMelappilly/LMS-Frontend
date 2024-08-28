@@ -5,7 +5,7 @@ import AdminProtected from '@/app/hooks/adminProtected'
 import Heading from '@/app/utils/Heading'
 import React from 'react'
 import AdminSidebar from '../../components/Admin/sidebar/AdminSidebar'
-import AllUsers from '../../components/Admin/course/AllUsers'
+import AllUsers from '../../components/Admin/Users/AllUsers'
 
 type Props = {}
 
