@@ -77,8 +77,7 @@ const AllUsers: FC<Props> = ({ isTeam }) => {
   const rows: any = [];
 
   if (isTeam) {
-    const newData =
-      data && data.users.filter((item: any) => item.role === "admin");
+    const newData = data && data.users.filter((item: any) => item.role === "admin");
 
     newData &&
       newData.forEach((item: any) => {
@@ -111,6 +110,12 @@ const AllUsers: FC<Props> = ({ isTeam }) => {
         <Loader />
       ) : (
         <Box m="0 40px 0 80px">
+          <div className="w-full flex justify-end">
+            <div className={`${styles.button} !w-[220px]`}
+                 onClick={() => setActive(!active)}>
+                Add New Member
+            </div>
+          </div>
           <Box
             m="40px 0 0 0"
             height="80vh"
@@ -199,3 +204,4 @@ const AllUsers: FC<Props> = ({ isTeam }) => {
 };
 
 export default AllUsers;
+
