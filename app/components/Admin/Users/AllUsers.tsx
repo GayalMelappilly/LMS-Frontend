@@ -96,7 +96,7 @@ const AllUsers: FC<Props> = ({ isTeam }) => {
         return (
           <>
             <a href={`mailto:${params.row.email}`}>
-              <AiOutlineMail className="dark:text-white text-black" size={20} />
+              <AiOutlineMail className="dark:text-white text-black my-4" size={20} />
             </a>
           </>
         );
@@ -117,7 +117,7 @@ const AllUsers: FC<Props> = ({ isTeam }) => {
           name: item.name,
           email: item.email,
           role: item.role,
-          courses: item.courses.length,
+          courses: item.course.length,
           created_at: format(item.createdAt),
         });
       });
@@ -129,7 +129,7 @@ const AllUsers: FC<Props> = ({ isTeam }) => {
           name: item.name,
           email: item.email,
           role: item.role,
-          courses: item.courses.length,
+          courses: item.course.length,
           created_at: format(item.createdAt),
         });
       });
@@ -149,7 +149,7 @@ const AllUsers: FC<Props> = ({ isTeam }) => {
       {isLoading ? (
         <Loader />
       ) : (
-        <Box m="20px">
+        <Box m="0 40px 40px 80px">
           {isTeam && (
             <div className="w-full flex justify-end">
               <div
@@ -178,8 +178,8 @@ const AllUsers: FC<Props> = ({ isTeam }) => {
                 color: theme === "dark" ? "#fff" : "#000",
                 borderBottom:
                   theme === "dark"
-                    ? "1px solid #ffffff30!important"
-                    : "1px solid #ccc!important",
+                    ? "1px solid #ffffff30 !important"
+                    : "1px solid #ccc !important",
               },
               "& .MuiTablePagination-root": {
                 color: theme === "dark" ? "#fff" : "#000",
@@ -190,18 +190,18 @@ const AllUsers: FC<Props> = ({ isTeam }) => {
               "& .name-column--cell": {
                 color: theme === "dark" ? "#fff" : "#000",
               },
-              "& .MuiDataGrid-columnHeaders": {
+              "& .MuiDataGrid-columnHeader": {
                 backgroundColor: theme === "dark" ? "#3e4396" : "#A4A9FC",
                 borderBottom: "none",
                 color: theme === "dark" ? "#fff" : "#000",
               },
               "& .MuiDataGrid-virtualScroller": {
-                backgroundColor: theme === "dark" ? "#1F2A40" : "#F2F0F0",
+                backgroundColor: theme === "dark" ? "#1F2A40 !important" : "#F2F0F0 !important",
               },
               "& .MuiDataGrid-footerContainer": {
-                color: theme === "dark" ? "#fff" : "#000",
-                borderTop: "none",
                 backgroundColor: theme === "dark" ? "#3e4396" : "#A4A9FC",
+                color: theme === "dark" ? "#fff" : "#000",
+                borderTop: "none"
               },
               "& .MuiCheckbox-root": {
                 color:
