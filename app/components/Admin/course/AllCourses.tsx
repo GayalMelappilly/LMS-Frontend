@@ -9,10 +9,10 @@ import {
   useGetAllCoursesQuery,
 } from "@/redux/features/courses/coursesApi";
 import Loader from "../../Loader/Loader";
+import { format } from "timeago.js";
 import { styles } from "@/app/styles/style";
 import { toast } from "react-hot-toast";
 import Link from "next/link";
-import {format} from 'timeago.js'
 
 type Props = {};
 
@@ -20,12 +20,10 @@ const AllCourses = (props: Props) => {
   const { theme, setTheme } = useTheme();
   const [open, setOpen] = useState(false);
   const [courseId, setCourseId] = useState("");
-
   const { isLoading, data, refetch } = useGetAllCoursesQuery(
     {},
     { refetchOnMountOrArgChange: true }
   );
-
   const [deleteCourse, { isSuccess, error }] = useDeleteCourseMutation({});
   const columns = [
     { field: "id", headerName: "ID", flex: 0.5 },
@@ -106,7 +104,7 @@ const AllCourses = (props: Props) => {
   };
 
   return (
-    <div className="mt-[110px]">
+    <div className="mt-[120px]">
       {isLoading ? (
         <Loader />
       ) : (
@@ -200,3 +198,4 @@ const AllCourses = (props: Props) => {
 };
 
 export default AllCourses;
+        
