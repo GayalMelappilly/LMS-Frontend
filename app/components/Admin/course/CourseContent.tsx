@@ -65,6 +65,7 @@ const CourseContent: FC<Props> = ({
         const lastVideoSection =
           courseContentData[courseContentData.length - 1].videoSection;
 
+        // use the last videoSection if available, else use user input
         if (lastVideoSection) {
           newVideoSection = lastVideoSection;
         }
@@ -178,6 +179,7 @@ const CourseContent: FC<Props> = ({
                     <div></div>
                   )}
 
+                  {/* // arrow button for collasped video content */}
                   <div className="flex items-center">
                     <AiOutlineDelete
                       className={`dark:text-white text-[20px] mr-2 text-black ${
