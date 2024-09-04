@@ -1,3 +1,4 @@
+import { useGetHeroDataQuery } from '@/redux/features/layout/layoutApi'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { FC } from 'react'
@@ -6,23 +7,26 @@ import { BiSearch } from 'react-icons/bi'
 type Props = {}
 
 const Hero: FC<Props> = (props) => {
+    const { data,refetch } = useGetHeroDataQuery("Banner", {});
     return (
         <div className='w-full 1000px:flex items-center'>
             <div className="flex 800px:flex-row 400px:flex-col 800px:h-screen">
-                <div className='1000px:w-[40%] 400px:w-full flex justify-end 400px:pt-[70px] 800px:pt-0 z-10'>
+                <div className='1000px:w-[50%] 400px:w-full flex justify-end 400px:pt-[70px] 800px:pt-0 800px:pb-[70px] z-10'>
                     <Image
-                        src={require('../../../public/assets/banner-img-1.png')}
+                        src={data?.layout?.banner?.image?.url}
+                        width={500}
+                        height={500}
                         alt=""
                         className='object-contain 800px:max-w-full 1100px:max-w-[90%] w-[90%] 1500px:max-w-[85%] 400px:max-w-[50%] 400px:mx-auto h-auto z-[10]'
                     />
                 </div>
                 <div className='1000px:w-[60%] flex flex-col items-center 1000px:mt-[60px] 800px:mt-[70px] text-center 1000px:text-left 800px:text-center mt-[150px] 400px:mt-10 400px:px-10 pt-[50px] 400px:pt-0'>
-                    <h2 className='dark:text-white text-[#000000c7] text-[50px] px-3 w-full 1000px:text-[40px] 800px:text-[35px] 400px:text-[40px] font-[600] font-Josefin py-2 leading-tight'>
-                        Improve your Online Learning Experience Better Instantly
+                    <h2 className='dark:text-white text-[#000000c7] text-[50px] w-full 1000px:text-[50px] 800px:text-[35px] 400px:text-[40px] font-[600] font-Josefin py-2 leading-tight  1500px:!w-[55%] 1100px:!w-[78%]'>
+                        {data?.layout?.banner?.title}
                     </h2>
                     <br />
                     <p className='dark:text-[#edfff4] text-[#000000ac] font-Josefin font-[600] text-[18px] 800px:text-[17px] 1000px:text-[17px] 1500px:!w-[55%] 1100px:!w-[78%]'>
-                        We have 40k+ Online Courses & 500k+ Online registered students. Find your desired Courses from them.
+                        {data?.layout?.banner?.subTitle}
                     </p>
                     <br />
                     <br />

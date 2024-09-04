@@ -5,6 +5,7 @@ import Heading from '@/app/utils/Heading'
 import React from 'react'
 import AdminSidebar from "../../components/Admin/sidebar/AdminSidebar";
 import EditHero from "../../components/Admin/Customization/EditHero";
+import { useGetHeroDataQuery } from '@/redux/features/layout/layoutApi'
 
 type Props = {}
 

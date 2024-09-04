@@ -79,7 +79,7 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
                 <div className='w-[95%] 800px:w-[92%] py-2 h-full'>
                     <div className="w-full h-[80px] flex items-center justify-between p-3">
                         <div>
-                            <Link href={'/'} className={'text-[25px] font-Poppins font-[500] text-black dark:text-white'}>
+                            <Link href={'/'} className={'text-[25px] font-Poppins font-[500] text-black dark:text-white pl-5'}>
                                 Learnify
                             </Link>
                         </div>

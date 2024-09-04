@@ -12,7 +12,7 @@ type Props = {};
 const EditHero: FC<Props> = (props: Props) => {
   const [image, setImage] = useState("");
   const [title, setTitle] = useState("");
-  const [subtitle, setSubtitle] = useState("");
+  const [subTitle, setSubTitle] = useState("");
   const { data,refetch } = useGetHeroDataQuery("Banner", {
     refetchOnMountOrArgChange: true
   });
@@ -21,7 +21,7 @@ const EditHero: FC<Props> = (props: Props) => {
   useEffect(() => {
     if (data) {
       setTitle(data?.layout?.banner?.title);
-      setSubtitle(data?.layout?.banner?.subTitle);
+      setSubTitle(data?.layout?.banner?.subTitle);
       setImage(data?.layout?.banner?.image?.url);
     }
     if (isSuccess) {
@@ -54,7 +54,7 @@ const EditHero: FC<Props> = (props: Props) => {
       type: "Banner",
       image,
       title,
-      subtitle,
+      subTitle,
     });
   };
 
@@ -85,16 +85,14 @@ const EditHero: FC<Props> = (props: Props) => {
         <div className="1000px:w-[60%] flex flex-col items-center 1000px:mt-[0px] text-center 1000px:text-left mt-[150px]">
           <textarea
             className="dark:text-white resize-none text-[#000000c7] text-[30px] px-3 w-full 1000px:text-[60px] 1500px:text-[60px] font-[600] font-Josefin py-2 1000px:leading-[65px] 1500px:w-[60%] 1100px:w-[78%] outline-none bg-transparent block"
-            placeholder="Improve Your Online Learning Experience Better Instantly"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             rows={4}
           />
           <br />
           <textarea
-            value={subtitle}
-            onChange={(e) => setSubtitle(e.target.value)}
-            placeholder="We have 40k+ Online courses & 500K+ Online registered student. Find your desired Courses from them."
+            value={subTitle}
+            onChange={(e) => setSubTitle(e.target.value)}
             className="dark:text-[#edfff4] text-[#000000ac] font-Josefin font-[600] text-[16px] 1500px:!w-[55%] 1100px:!w-[74%] bg-transparent outline-none resize-none"
           ></textarea>
           <br />
@@ -106,7 +104,7 @@ const EditHero: FC<Props> = (props: Props) => {
             } !w-[100px] !min-h-[40px] !h-[40px] dark:text-white text-black bg-[#cccccc34] 
           ${
             data?.layout?.banner?.title !== title ||
-            data?.layout?.banner?.subtitle !== subtitle ||
+            data?.layout?.banner?.subtitle !== subTitle ||
             data?.layout?.banner?.image?.url !== image
               ? "!cursor-pointer !bg-[#42d383]"
               : "!cursor-not-allowed"
@@ -114,7 +112,7 @@ const EditHero: FC<Props> = (props: Props) => {
           !rounded absolute bottom-12 right-12`}
             onClick={
               data?.layout?.banner?.title !== title ||
-              data?.layout?.banner?.subtitle !== subtitle ||
+              data?.layout?.banner?.subtitle !== subTitle ||
               data?.layout?.banner?.image?.url !== image
                 ? handleEdit
                 : () => null
