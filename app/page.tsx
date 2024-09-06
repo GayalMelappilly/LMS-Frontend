@@ -18,8 +18,8 @@ const Page:FC<Props> = () => {
   return (
     <div>
       <Heading 
-        title="eLearning"
-        description='eLearning is platform for students to learn and get help from teachers'
+        title="Learnify"
+        description='Learnify is platform for students to learn and get help from teachers'
         keywords='Programming, MERN, Redux, Machine Learning'
       />
       <Header

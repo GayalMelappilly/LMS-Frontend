@@ -42,7 +42,7 @@ const Hero: FC<Props> = (props) => {
                     </div>
                     <br />
                     <br />
-                    <div className='1500px:w-[55%] 1100px:w-[78%] w-[90%] flex items-center'>
+                    <div className='1500px:w-[55%] 1100px:w-[78%] w-[90%] flex items-center justify-center 400px:mb-10'>
                         <Image
                             src={require('../../../public/assets/client-1.jpg')}
                             alt=''
