@@ -43,15 +43,13 @@ const CourseDetailsPage = ({ id }: Props) => {
             setOpen={setOpen}
             activeItem={1}
           />
-  
-            <CourseDetails
-              data={data.course}
-              stripePromise={stripePromise}
-              clientSecret={clientSecret}
-              setRoute={setRoute}
-              setOpen={setOpen}
-            />
-        
+          <CourseDetails
+            data={data.course}
+            stripePromise={stripePromise}
+            clientSecret={clientSecret}
+            setRoute={setRoute}
+            setOpen={setOpen}
+          />
           <Footer />
         </div>
       )}
