@@ -52,7 +52,7 @@ const CheckOutForm = ({ data,user,refetch }: Props) => {
   useEffect(()=>{
     if(orderData){
       setLoadUser(true)
-      redirect(`/course-access/${data.id}`)
+      redirect(`/course-access/${data._id}`)
     }
     if(error){
       console.log("ERROR AFTER PAYMENT : ",error)
