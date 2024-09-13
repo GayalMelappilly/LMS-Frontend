@@ -23,6 +23,8 @@ const CheckOutForm = ({ data,user,refetch }: Props) => {
   const elements = useElements();
   const [message, setMessage] = useState<any>("");
   const [createOrder, { data: orderData, error }] = useCreateOrderMutation();
+  const [loadUser, setLoadUser] = useState(false)
+  const {} = useLoadUserQuery({skip: loadUser ? false : true})
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: any) => {
@@ -36,13 +38,30 @@ const CheckOutForm = ({ data,user,refetch }: Props) => {
       redirect: "if_required",
     });
     if (error) {
+      console.log("ERROR : ",error)
       setMessage(error.message);
       setIsLoading(false);
     } else if (paymentIntent && paymentIntent.status === "succeeded") {
+      console.log("DATA : ",data)
+      console.log("PAYMENT INTENT : ", paymentIntent)
       setIsLoading(false);
       createOrder({ courseId: data._id, payment_info: paymentIntent });
     }
   };
+
+  useEffect(()=>{
+    if(orderData){
+      setLoadUser(true)
+      redirect(`/course-access/${data.id}`)
+    }
+    if(error){
+      console.log("ERROR AFTER PAYMENT : ",error)
+      if("data" in error){
+      const errorMessage = error as any;
+      toast.error(errorMessage.data.message)
+    }
+  }
+}, [orderData, error])
   
 
   return (
