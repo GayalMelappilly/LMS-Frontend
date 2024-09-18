@@ -43,8 +43,6 @@ const CourseDetails = ({
   const isPurchased =
     user && user?.course?.find((item: any) => item._id === data._id);
 
-    console.log('USER : ',user)
-
   const handleOrder = (e: any) => {
     if (user) {
       setOpen(true);
