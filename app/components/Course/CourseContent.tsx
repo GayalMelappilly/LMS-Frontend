@@ -32,7 +32,7 @@ const CourseContent = ({ id, user }: Props) => {
               description="anything"
               keywords={data[activeVideo]?.tags}
             />
-            <div className="col-span-7">
+            <div className="col-span-6">
               <CourseContentMedia
                 data={data}
                 id={id}
@@ -42,7 +42,7 @@ const CourseContent = ({ id, user }: Props) => {
                 refetch={refetch}
               />
             </div>
-            <div className="hidden 800px:block 800px:col-span-3">
+            <div className="hidden 800px:block 800px:col-span-2">
             <CourseContentList
               setActiveVideo={setActiveVideo}
               data={data}
