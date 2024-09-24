@@ -1,7 +1,12 @@
 "use client";
 import { ThemeSwitcher } from "@/app/utils/ThemeSwitcher";
+import { useGetAllNotificationsQuery, useUpdateNotificationStatusMutation } from "@/redux/features/notifications/notificationsApi";
 import React, { FC, useEffect, useState } from "react";
 import { IoMdNotificationsOutline } from "react-icons/io";
+import socketIO from "socket.io-client";
+
+const ENDPOINT = process.env.NEXT_PUBLIC_SERVER_URI || ""
+const socketId = socketIO(ENDPOINT, {transports: ['websocket']})
 
 type Props = {
     open?: boolean;
@@ -9,6 +14,44 @@ type Props = {
 };
 
 const DashboardHeader: FC<Props> = ({open, setOpen}) => {
+
+    const {data, refetch} = useGetAllNotificationsQuery(undefined, {
+        refetchOnMountOrArgChange: true
+    })
+
+    const [updateNotificationStatus, {isSuccess} ] = useUpdateNotificationStatusMutation()
+    const [notification, setNotification] = useState<any>([])
+
+    const [audio] = useState(
+        new Audio(
+            'https://res.cloudinary.com/dwg9xfjxr/video/upload/v1727206590/livechat-129007_chsoiz.mp3'
+        )
+    ) 
+
+    const playerNotificationSound = () => {
+        audio.play()
+    }
+
+    useEffect(() => {
+        if(data){
+            setNotification(data.notification.filter((item:any) => item.status === 'unread'))
+        }
+        if(isSuccess){
+            refetch()
+        }
+        audio.load()
+    }, [data, isSuccess])
+
+    useEffect(() => {
+        socketId.on("newNotification", (data:any) => {
+            refetch()
+            playerNotificationSound()
+        })
+    }, [])
+
+    const handleNotificationStatusChange = async (id: string) => {
+        await updateNotificationStatus(id)
+    }
 
     return (
         <div className="w-full flex items-center justify-end p-6 fixed top-5 right-0 z-[9999999]">
