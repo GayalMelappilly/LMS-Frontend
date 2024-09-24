@@ -1,6 +1,7 @@
 'use client'
 
 import "./globals.css";
+require('dotenv').config()
 import { Poppins } from "next/font/google";
 import { Josefin_Sans } from "next/font/google";
 import { ThemeProvider } from "./utils/theme-provider";
@@ -9,6 +10,11 @@ import { Providers } from './Provider'
 import { SessionProvider } from "next-auth/react";
 import { useLoadUserQuery } from "@/redux/features/api/apiSlice";
 import Loader from './components/Loader/Loader'
+import socketIO from "socket.io-client"
+import { useEffect } from "react";
+
+const ENDPOINT = process.env.NEXT_PUBLIC_SOCKET_SERVER_URI || ''
+const socketId = socketIO(ENDPOINT, {transports: ["websocket"]})
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -45,6 +51,13 @@ export default function RootLayout({
 
 const Custom: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { isLoading } = useLoadUserQuery({})
+
+  useEffect(()=>{
+    socketId.on('connection', ()=>{
+      console.log('Connected to socket.io server')
+    })
+  },[])
+
   return (
     <>
     {
