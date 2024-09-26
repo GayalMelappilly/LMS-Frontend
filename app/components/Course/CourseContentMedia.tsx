@@ -142,6 +142,7 @@ const CourseContentMedia = ({
       setReview("");
       setRating(1);
       courseRefetch();
+      toast.success("Review added successfully")
       socketId.emit("notification", {
         title: `New reivew Received`,
         message: `You have a new review in ${data[activeVideo].title}`,
