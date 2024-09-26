@@ -68,6 +68,7 @@ const CourseContentMedia = ({
       isLoading: answerCreationLoading,
     },
   ] = useAddAnswerInQuestionMutation();
+
   const course = courseData?.course;
   const [
     addReviewInCourse,
@@ -107,6 +108,7 @@ const CourseContentMedia = ({
     if (isSuccess) {
       setQuestion("");
       refetch();
+      toast.success("Question added successfully")
       socketId.emit("notification", {
         title: `New Question Received`,
         message: `You have a new question in ${data[activeVideo].title}`,

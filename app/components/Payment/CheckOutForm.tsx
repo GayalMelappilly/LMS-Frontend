@@ -22,7 +22,7 @@ type Props = {
   refetch:any;
 };
 
-const CheckOutForm = ({ data,user,refetch }: Props) => {
+const CheckOutForm = ({ setOpen,data,user,refetch }: Props) => {
   const stripe = useStripe();
   const elements = useElements();
   const [message, setMessage] = useState<any>("");
@@ -30,6 +30,8 @@ const CheckOutForm = ({ data,user,refetch }: Props) => {
   const [loadUser, setLoadUser] = useState(false)
   const {} = useLoadUserQuery({skip: loadUser ? false : true})
   const [isLoading, setIsLoading] = useState(false);
+
+  console.log("D : ",data.name)
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -58,7 +60,7 @@ const CheckOutForm = ({ data,user,refetch }: Props) => {
       setLoadUser(true)
       socketId.emit("notification", {
         title: "New Order",
-        message: `You have a new order from ${data.course.name}`,
+        message: `You have a new order from ${data.name}`,
         userId: user._id
       })
       redirect(`/course-access/${data._id}`)
@@ -93,3 +95,4 @@ const CheckOutForm = ({ data,user,refetch }: Props) => {
 };
 
 export default CheckOutForm;
+
