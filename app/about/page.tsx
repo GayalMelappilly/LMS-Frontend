@@ -2,7 +2,8 @@
 import React, { useState } from 'react'
 import Heading from '../utils/Heading'
 import Header from '../components/Header'
-import About from './About.tsx'
+import About from './About'
+import Footer from '../components/Footer'
 
 type Props = {}
 
@@ -25,6 +26,7 @@ const page = (props: Props) => {
             setRoute={setRoute}
         />
         <About />
+        <Footer />
     </div>
   )
 }
