@@ -33,7 +33,7 @@ const About = (props: Props) => {
       <br />
       <h1 className={`${styles.title} 800px:!text-[45px]`}>About <span className='text-gradient'>Learnify</span></h1>
       <br />
-      <div className='text-[18px] font-Poppins w-[95%] 800px:w-[85%] m-auto'>
+      <div className='text-[18px] text-black dark:text-white font-Poppins w-[95%] 800px:w-[85%] m-auto'>
         <p className=''>
           At Learnify, we are transforming the landscape of online education by providing a robust and versatile Learning Management System (LMS) designed to cater to the needs of both learners and educators. Our platform is built on the foundation of accessibility, innovation, and collaboration, offering a dynamic learning environment where users can not only consume knowledge but also create and share it.
           <br />
