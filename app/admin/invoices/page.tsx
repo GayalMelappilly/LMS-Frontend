@@ -12,7 +12,7 @@ const page = (props: Props) => {
     <div>
         <Heading
          title="Learnify - Admin"
-         description="Learnify is a platform for students to learn and get help from teachers"
+         description="Learnify - Learning made simple"
          keywords="Prograaming,MERN,Redux,Machine Learning"
         />
         <div className="flex">

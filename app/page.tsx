@@ -19,7 +19,7 @@ const Page:FC<Props> = () => {
     <div>
       <Heading 
         title="Learnify"
-        description='Learnify is platform for students to learn and get help from teachers'
+        description='Learnify - Learning made simple'
         keywords='Programming, MERN, Redux, Machine Learning'
       />
       <Header

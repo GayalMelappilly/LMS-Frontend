@@ -15,7 +15,7 @@ const page = (props: Props) => {
     <div>
         <Heading 
             title='FAQ - Learnify'
-            description='Learnify - Easiest way to learn.'
+            description='Learnify - Learning made simple'
             keywords='Programming, Web development'
         />
         <Header 
@@ -27,6 +27,8 @@ const page = (props: Props) => {
         />
         <FAQ />
         <Footer />
+        <br />
+        <br />
     </div>
   )
 }

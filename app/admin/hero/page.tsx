@@ -15,7 +15,7 @@ const page = (props: Props) => {
       <AdminProtected>
         <Heading
           title="Learnify - Admin"
-          description="Learnify is a platform for students to learn and get help from teachers"
+          description="Learnify - Learning made simple"
           keywords="Programming,MERN,Redux,Machine Learning"
         />
         <div className="flex h-screen">

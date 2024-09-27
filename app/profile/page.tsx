@@ -22,7 +22,7 @@ const page: FC<Props> = () => {
             <Protected>
                 <Heading
                     title={`${user?.name} profile - Learnify`}
-                    description='eLearning is platform for students to learn and get help from teachers'
+                    description='Learnify - Learning made simple'
                     keywords='Programming, MERN, Redux, Machine Learning'
                 />
                 <Header
