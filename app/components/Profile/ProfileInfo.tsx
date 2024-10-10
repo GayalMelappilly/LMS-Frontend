@@ -69,7 +69,7 @@ const ProfileInfo: FC<Props> = ({avatar, user}) => {
                     alt=''
                     width={120} 
                     height={120}
-                    className='w-[120px] h-[120px] rounded-full cursor-pointer border-[3px] border-[#37a38a]'
+                    className='w-[120px] h-[120px] rounded-full cursor-pointer border-[3px] border-[#F9D341]'
                 />
                 <input 
                     type="file"
@@ -91,7 +91,7 @@ const ProfileInfo: FC<Props> = ({avatar, user}) => {
             <form onSubmit={handleSubmit}>
                 <div className="800px:w-[50%] m-auto block pb-4">
                     <div className='w-[100%]'>
-                        <label className='block'>Full Name</label>
+                        <label className='block text-black dark:text-white'>Full Name</label>
                         <input
                             type="text"
                             className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
@@ -101,7 +101,7 @@ const ProfileInfo: FC<Props> = ({avatar, user}) => {
                         />
                     </div>
                     <div className='w-[100%]'>
-                        <label className='block pt-5'>Email Address</label>
+                        <label className='block pt-5 text-black dark:text-white'>Email Address</label>
                         <input
                             type="email"
                             className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
@@ -112,7 +112,7 @@ const ProfileInfo: FC<Props> = ({avatar, user}) => {
                         />
                     </div>
                     <input
-                        className={`w-full 800px:w-[250px] h-[40px] border border-[#37a39a] text-center dark:text-[#fff] text-black rounded-[3px] mt-8 cursor-pointer`} 
+                        className={`w-full 800px:w-[95%] h-[40px] border border-emerald-400 text-center text-black dark:text-emerald-400 hover:bg-emerald-400 hover:text-zinc-900 rounded-[3px] mt-8 cursor-pointer`} 
                         required
                         value="Update"
                         type="submit" 

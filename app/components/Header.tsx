@@ -79,11 +79,11 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
 
     return (
         <div className='w-full relative'>
-            <div className={`${active ? 'dark:bg-opacity-50 bg-white dark:bg-gradient-to-b dark:from-gray-900 dark:to-black fixed top-0 left-0 w-full h-[80px] z-[80] border-b dark:border-[#ffffff1c] shadow-xl transition duration-75' : 'w-full border-b dark:border-[#ffffff1c] h-[80px] z-[80] dark:shadow'}`}>
+            <div className={`${active ? 'bg-white dark:bg-zinc-900 fixed top-0 left-0 w-full h-[80px] z-[80] border-b dark:border-[#ffffff1c] shadow-xl transition duration-75' : 'w-full border-b dark:border-[#ffffff1c] h-[80px] z-[80] dark:shadow'}`}>
                 <div className='w-[95%] 800px:w-[92%] py-2 h-full'>
                     <div className="w-full h-[80px] flex items-center justify-between p-3">
                         <div>
-                            <Link href={'/'} className={'text-[25px] font-Poppins font-[500] text-black dark:text-white pl-5'}>
+                            <Link href={'/'} className={'text-[25px] font-Poppins font-[500] text-black dark:text-[#F9D341] pl-5'}>
                                 Learnify
                             </Link>
                         </div>
@@ -109,7 +109,7 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
                                             width={30}
                                             height={30}
                                             className='w-[30px] h-[30px] ml-4 cursor-pointer rounded-full'
-                                            style={{border: activeItem === 5 ? '2px solid #37a39a' : 'none'}}
+                                            style={{border: activeItem === 5 ? '2px solid #F9D341' : 'none'}}
                                         />
                                     </Link>
                                 ) : (

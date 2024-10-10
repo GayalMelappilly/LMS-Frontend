@@ -41,11 +41,11 @@ const Hero: FC<Props> = (props) => {
                 />
               </div>
               <div className='1000px:w-[60%] flex flex-col items-center 1000px:mt-[60px] 800px:mt-[70px] text-center 1000px:text-left 800px:text-center mt-[150px] 400px:mt-10 400px:px-10 pt-[50px] 400px:pt-0'>
-                <h2 className='dark:text-white text-[#000000c7] text-[50px] w-full 1000px:text-[50px] 800px:text-[35px] 400px:text-[40px] font-[600] font-Josefin py-2 leading-tight  1500px:!w-[55%] 1100px:!w-[78%]'>
+                <h2 className='dark:text-[#ffffff] text-[#000000c7] text-[50px] w-full 1000px:text-[50px] 800px:text-[35px] 400px:text-[40px] font-[600] font-Josefin py-2 leading-tight  1500px:!w-[55%] 1100px:!w-[78%]'>
                   {data?.layout?.banner?.title}
                 </h2>
                 <br />
-                <p className='dark:text-[#edfff4] text-[#000000ac] font-Josefin font-[600] text-[18px] 800px:text-[17px] 1000px:text-[17px] 1500px:!w-[55%] 1100px:!w-[78%]'>
+                <p className='dark:text-[#F9D341] text-[#000000ac] font-Josefin font-[600] text-[18px] 800px:text-[17px] 1000px:text-[17px] 1500px:!w-[55%] 1100px:!w-[78%]'>
                   {data?.layout?.banner?.subTitle}
                 </p>
                 <br />
@@ -56,11 +56,11 @@ const Hero: FC<Props> = (props) => {
                     placeholder='Search Courses...'
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    className='bg-transparent border dark:border-none dark:bg-[#575757] dark:placeholder:text-[#ffffffdd] rounded-[5px] p-2 w-full h-full outline-none text-[#0000004e] dark:text-[#ffffffe6] text-[20px] font-[500] font-Josefin'
+                    className='bg-transparent border dark:border-zinc-400 dark:border-2 dark:placeholder:text-[#ffffffdd] dark:placeholder:text-opacity-15 rounded-[12px] p-3 w-full h-full outline-none text-[#0000004e] dark:text-[#ffffffe6] text-[18px] font-Poppins'
                   />
-                  <div className='absolute flex items-center justify-center w-[50px] cursor-pointer h-[50px] 800px:h-[40px] right-0 top-0 bg-[#39c1f3] rounded-r-[5px]'
+                  <div className='absolute flex items-center justify-center w-[50px] cursor-pointer h-[50px] 800px:h-[40px] right-0 top-0 rounded-r-[5px]'
                     onClick={handleSearch}>
-                    <BiSearch className='text-white' size={30} />
+                    <BiSearch className='text-white dark:text-[#F9D341]' size={30} />
                   </div>
                 </div>
                 <br />
@@ -85,7 +85,7 @@ const Hero: FC<Props> = (props) => {
                     500K+ People already trusted us.{' '}
                     <Link
                       href='/courses'
-                      className='dark:text-[#46e256] text-[crimson]'
+                      className='dark:text-yellow-500 text-[crimson]'
                     >
                       View Courses
                     </Link>

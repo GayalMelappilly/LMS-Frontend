@@ -28,17 +28,17 @@ input::-webkit-inner-spin-button {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #1771c6;
+  background: #262626;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #f5f5f5b0;
+  background: #c19a02;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #32ae7e;
+  background: #F9D341;
 }
 
 /* Firefox */
@@ -54,7 +54,7 @@ body {
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, #16bdda 2.34%, #202cdc 100.78%);
+  background: linear-gradient(90deg, #F9D341 2.34%, #F9D341 100.78%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

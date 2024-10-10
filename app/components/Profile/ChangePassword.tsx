@@ -76,7 +76,7 @@ const ChangePassword = (props: Props) => {
                         onChange={(e) => setConfirmPassword(e.target.value)}
                     />
                     <input
-                        className={`w-[95%] h-[40px] border border-[#37a39a] text-center text-black dark:text-[#fff] rounded-[3px] mt-8 cursor-pointer`}
+                        className={`w-[95%] h-[40px] border border-emerald-400 text-center text-black dark:text-emerald-400 hover:bg-emerald-400 hover:text-zinc-900 rounded-[3px] mt-8 cursor-pointer`}
                         required
                         value="Update"
                         type='submit'

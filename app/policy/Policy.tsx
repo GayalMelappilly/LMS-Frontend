@@ -76,8 +76,8 @@ const Policy = (props: Props) => {
                     Terms and Conditions
                 </h1>
                 <ul className="w-[95%] px-10" style={{ listStyle: "unset", marginLeft: "15px" }}>
-                    {termsAndConditions.map((item) => (
-                        <div className="py-2 ml-[-15px] text-[16px] font-Poppins leading-8 whitespace-pre-line">
+                    {termsAndConditions.map((item, index:number) => (
+                        <div key={index} className="py-2 ml-[-15px] text-[16px] font-Poppins leading-8 whitespace-pre-line">
                             <p className="font-semibold text-[25px] my-3">{item.head}</p>
                             <div className="mx-5">
                                 {item.content && (
@@ -85,8 +85,8 @@ const Policy = (props: Props) => {
                                 )}
                                 {item.pointContent && (
                                     <div className="mx-10">
-                                        {item.pointContent.map((point) => (
-                                            <li>{point}</li>
+                                        {item.pointContent.map((point, index: number) => (
+                                            <li key={index}>{point}</li>
                                         ))}
                                     </div>
                                 )}

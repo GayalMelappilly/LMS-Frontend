@@ -23,7 +23,8 @@ const DashboardHeader: FC<Props> = ({ open, setOpen }) => {
     const [updateNotificationStatus, { isSuccess }] = useUpdateNotificationStatusMutation()
     const [notification, setNotification] = useState<any>([])
 
-    const [audio] = useState(
+    const [audio] = useState<any>(
+        typeof window !== "undefined" &&
         new Audio(
             "https://res.cloudinary.com/dwg9xfjxr/video/upload/v1727206590/livechat-129007_chsoiz.mp3"
         )
@@ -74,8 +75,8 @@ const DashboardHeader: FC<Props> = ({ open, setOpen }) => {
                         Notifications
                     </h5>
                     {
-                        notification && notification.map((item: any) => (
-                            <div className="dark:bg-[#2d3a4e] bg-[#00000013] font-Poppins border-b dark:border-b-[#ffffff47] border-b-[#0000000f]">
+                        notification && notification.map((item: any, index: number) => (
+                            <div key={index} className="dark:bg-[#2d3a4e] bg-[#00000013] font-Poppins border-b dark:border-b-[#ffffff47] border-b-[#0000000f]">
                                 <div className="w-full flex items-center justify-between p-2">
                                     <p className="text-black dark:text-white">
                                         {item.title}

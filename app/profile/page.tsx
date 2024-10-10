@@ -6,12 +6,11 @@ import Heading from '../utils/Heading'
 import Header from '../components/Header'
 import Profile from '../components/Profile/Profile'
 import { useSelector } from 'react-redux'
-import { stat } from 'fs'
 import Footer from '../components/Footer'
 
 type Props = {}
 
-const page: FC<Props> = () => {
+const Page: FC<Props> = () => {
 
     const [open, setOpen] = useState(false)
     const [activeItem, setActiveItem] = useState(5)
@@ -42,4 +41,4 @@ const page: FC<Props> = () => {
     )
 }
 
-export default page
+export default Page
