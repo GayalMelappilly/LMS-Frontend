@@ -136,7 +136,7 @@ const CourseContent: FC<Props> = ({
           return (
             <>
               <div
-                className={`w-full bg-[#cdc8c817] p-4 ${
+                className={`w-full p-4 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] dark:shadow-zinc-950 shadow-zinc-200 rounded ${
                   showSectionInput ? "mt-10" : "mb-0"
                 }`}
                 key={index}
@@ -352,13 +352,13 @@ const CourseContent: FC<Props> = ({
       <br />
       <div className="w-full flex items-center justify-between">
         <div
-          className="w-full 800px:w-[180px] flex items-center justify-center h-[40px] bg-[#37a39a] text-center text-[#fff] rounded mt-8 cursor-pointer"
+          className="w-full 800px:w-[180px] flex items-center justify-center h-[40px] bg-emerald-400 dark:text-[#18181B] text-center text-[#fff] rounded mt-8 cursor-pointer"
           onClick={() => prevButton()}
         >
           Prev
         </div>
         <div
-          className="w-full 800px:w-[180px] flex items-center justify-center h-[40px] bg-[#37a39a] text-center text-[#fff] rounded mt-8 cursor-pointer"
+          className="w-full 800px:w-[180px] flex items-center justify-center h-[40px] bg-emerald-400 dark:text-[#18181B] text-center text-[#fff] rounded mt-8 cursor-pointer"
           onClick={() => handleOptions()}
         >
           Next

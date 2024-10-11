@@ -45,7 +45,7 @@ const Hero: FC<Props> = (props) => {
                   {data?.layout?.banner?.title}
                 </h2>
                 <br />
-                <p className='dark:text-[#F9D341] text-[#000000ac] font-Josefin font-[600] text-[18px] 800px:text-[17px] 1000px:text-[17px] 1500px:!w-[55%] 1100px:!w-[78%]'>
+                <p className='dark:text-[#ffffff] text-[#000000ac] font-Josefin font-[600] text-[18px] 800px:text-[17px] 1000px:text-[17px] 1500px:!w-[55%] 1100px:!w-[78%]'>
                   {data?.layout?.banner?.subTitle}
                 </p>
                 <br />

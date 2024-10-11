@@ -74,7 +74,7 @@ export default function OrdersAnalytics({ isDashboard }: Props) {
                 <YAxis />
                 <Tooltip />
                 {!isDashboard && <Legend />}
-                <Line type="monotone" dataKey="Count" stroke="#82ca9d" />
+                <Line type="monotone" dataKey="Count" stroke="#34D399" />
               </LineChart>
             </ResponsiveContainer>
           </div>

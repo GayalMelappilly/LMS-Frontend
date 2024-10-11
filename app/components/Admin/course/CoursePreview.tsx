@@ -73,7 +73,7 @@ const CoursePreview: FC<Props> = ({
             className={`${styles.input} 1500px:!w-[50%] 1100px:w-[60%] ml-3 !mt-0`}
           />
           <div
-            className={`${styles.button} !w-[120px] my-3 ml-4 font-Poppins cursor-pointer`}
+            className={`${styles.button} bg-emerald-400 dark:text-[#18181B] !w-[120px] my-3 ml-4 font-Poppins cursor-pointer`}
           >
             Apply
           </div>
@@ -137,13 +137,13 @@ const CoursePreview: FC<Props> = ({
       </div>
       <div className="w-full flex items-center justify-between">
         <div
-          className="w-full 800px:w-[180px] flex items-center justify-center h-[40px] bg-[#37a39a] text-center text-[#fff] rounded mt-8 cursor-pointer"
+          className="w-full 800px:w-[180px] flex items-center justify-center h-[40px] bg-emerald-400 dark:text-[#18181B] text-center text-[#fff] rounded mt-8 cursor-pointer"
           onClick={() => prevButton()}
         >
           Prev
         </div>
         <div
-          className="w-full 800px:w-[180px] flex items-center justify-center h-[40px] bg-[#37a39a] text-center text-[#fff] rounded mt-8 cursor-pointer"
+          className="w-full 800px:w-[180px] flex items-center justify-center h-[40px] bg-emerald-400 dark:text-[#18181B] text-center text-[#fff] rounded mt-8 cursor-pointer"
           onClick={() => createCourse()}
         >
          {

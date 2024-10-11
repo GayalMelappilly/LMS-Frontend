@@ -77,7 +77,7 @@ const Login: FC<Props> = ({ setRoute, setOpen, refetch }) => {
                         Enter your password
                     </label>
                     <input
-                        type="password"
+                        type={`${show ? 'text' : 'password'}`}
                         name='password'
                         value={values.password}
                         onChange={handleChange}

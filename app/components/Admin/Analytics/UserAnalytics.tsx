@@ -32,7 +32,7 @@ const UserAnalytics = ({isDashboard}:Props) => {
         isLoading ? (
             <Loader />
         ) : (
-            <div className={`${!isDashboard ? "mt-[50px] ml-[50px]" : "mt-[50px] dark:bg-[#111C43] shadow-sm pb-5 rounded-sm"}`}>
+            <div className={`${!isDashboard ? "mt-[50px] ml-[50px]" : "mt-[50px] dark:bg-zinc-900 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] dark:shadow-zinc-950 shadow-zinc-200 pb-5 rounded-sm"}`}>
             <div className={`${isDashboard ? "!ml-8 mb-5" : ''}`}>
             <h1 className={`${styles.title} ${isDashboard && '!text-[20px]'} px-5 !text-start`}>
                Users Analytics
@@ -63,8 +63,8 @@ const UserAnalytics = ({isDashboard}:Props) => {
                <Area
                  type="monotone"
                  dataKey="count"
-                 stroke="#4d62d9"
-                 fill="#4d62d9"
+                 stroke="#34D399"
+                 fill="none"
                />
              </AreaChart>
            </ResponsiveContainer>

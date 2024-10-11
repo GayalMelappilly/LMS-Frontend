@@ -58,41 +58,44 @@ const DashboardHeader: FC<Props> = ({ open, setOpen }) => {
     }
 
     return (
-        <div className="w-full flex items-center justify-end p-6 fixed top-5 right-0 z-[9999999]">
+        <div className="w-full flex items-center justify-end p-6 fixed top-0 right-0 z-50 bg-white dark:bg-zinc-900 border-b-2 border-opacity-50 border-zinc-400">
             <ThemeSwitcher />
             <div
                 className="relative cursor-pointer m-2"
                 onClick={() => setOpen(!open)}
             >
                 <IoMdNotificationsOutline className="text-2xl cursor-pointer dark:text-white text-black" />
-                <span className="absolute -top-2 -right-2 bg-[#3ccba0] rounded-full w-[20px] h-[20px] text-[12px] flex items-center justify-center text-white">
+                <span className="absolute -top-2 -right-2 bg-emerald-600 rounded-full w-[20px] h-[20px] text-[12px] flex items-center justify-center text-white">
                     {notification && notification.length}
                 </span>
             </div>
             {open && (
-                <div className="w-[350px] h-[60vh] overflow-y-scroll py-3 px-2 border border-[#ffffff0c] dark:bg-[#111C43] bg-white shadow-xl absolute top-16 z-[1000000000] rounded">
+                <div className="w-[350px] h-[60vh] overflow-y-scroll py-3 px-2 border border-[#ffffff0c] dark:bg-zinc-900 bg-white absolute top-16 z-[1000000000] rounded shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] dark:shadow-zinc-950 shadow-zinc-200">
                     <h5 className="text-center text-[20px] font-Poppins text-black dark:text-white p-3">
                         Notifications
                     </h5>
                     {
                         notification && notification.map((item: any, index: number) => (
-                            <div key={index} className="dark:bg-[#2d3a4e] bg-[#00000013] font-Poppins border-b dark:border-b-[#ffffff47] border-b-[#0000000f]">
-                                <div className="w-full flex items-center justify-between p-2">
-                                    <p className="text-black dark:text-white">
-                                        {item.title}
+                            <>
+                                <div key={index} className="dark:bg-zinc-900 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] dark:shadow-zinc-950 shadow-zinc-200 bg-[#00000013] font-Poppins my-2 rounded-xl p-1">
+                                    <div className="w-full flex items-center justify-between p-2">
+                                        <p className="text-black dark:text-white">
+                                            {item.title}
+                                        </p>
+                                        <p className="text-black dark:text-[#F9D341] dark:hover:text-red-600 cursor-pointer"
+                                            onClick={() => handleNotificationStatusChange(item._id)}>
+                                            Mark as read
+                                        </p>
+                                    </div>
+                                    <p className="px-2 text-black dark:text-white">
+                                        {item.message}
                                     </p>
-                                    <p className="text-black dark:text-white cursor-pointer"
-                                        onClick={() => handleNotificationStatusChange(item._id)}>
-                                        Mark as read
+                                    <p className="p-2 text-black dark:text-white text-[14px]">
+                                        {format(item.createdAt)}
                                     </p>
                                 </div>
-                                <p className="px-2 text-black dark:text-white">
-                                    {item.message}
-                                </p>
-                                <p className="p-2 text-black dark:text-white text-[14px]">
-                                    {format(item.createdAt)}
-                                </p>
-                            </div>
+                                <hr />
+                            </>
                         ))
                     }
                 </div>

@@ -71,17 +71,17 @@ const Sidebar = () => {
       sx={{
         "& .pro-sidebar-inner": {
           background: `${
-            theme === "dark" ? "#111C43 !important" : "#fff !important"
+            theme === "dark" ? "#18181B !important" : "#fff !important"
           }`,
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important",
         },
         "& .pro-inner-item:hover": {
-          color: "#868dfb !important",
+          color: "#F9D341 !important",
         },
         "& .pro-menu-item.active": {
-          color: "#6870fa !important",
+          color: "#F9D341 !important",
         },
         "& .pro-inner-item": {
           padding: "5px 35px 5px 20px !important",
@@ -121,7 +121,7 @@ const Sidebar = () => {
                 ml="15px"
               >
                <Link href="/" className="block">
-               <h3 className="text-[25px] font-Poppins uppercase dark:text-white text-black">
+               <h3 className="text-[25px] dark:text-[white] text-black font-Poppins">
                   Learnify
                 </h3>
                </Link>
@@ -143,7 +143,7 @@ const Sidebar = () => {
                   style={{
                     cursor: "pointer",
                     borderRadius: "50%",
-                    border: "3px solid #5b6fe6",
+                    border: "3px solid #F9D341",
                   }}
                 />
               </Box>

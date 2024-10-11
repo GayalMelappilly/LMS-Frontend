@@ -114,7 +114,8 @@ const AllCourses = (props: Props) => {
             height="80vh"
             sx={{
               "& .MuiDataGrid-root": {
-                border: "none",
+                borderColor: '#FFFFFF',
+                borderWidth: '3px',
                 outline: "none",
               },
               "& .css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon": {
@@ -140,21 +141,21 @@ const AllCourses = (props: Props) => {
                 color: theme === "dark" ? "#fff" : "#000",
               },
               "& .MuiDataGrid-columnHeader": {
-                backgroundColor: theme === "dark" ? "#3e4396" : "#A4A9FC",
+                backgroundColor: theme === "dark" ? "#18181B" : "#A4A9FC",
                 borderBottom: "none",
                 color: theme === "dark" ? "#fff" : "#000",
               },
               "& .MuiDataGrid-virtualScroller": {
-                backgroundColor: theme === "dark" ? "#1F2A40 !important" : "#F2F0F0 !important",
+                backgroundColor: theme === "dark" ? "#18181B !important" : "#F2F0F0 !important",
               },
               "& .MuiDataGrid-footerContainer": {
-                backgroundColor: theme === "dark" ? "#3e4396" : "#A4A9FC",
+                backgroundColor: theme === "dark" ? "#18181B" : "#A4A9FC",
                 color: theme === "dark" ? "#fff" : "#000",
                 borderTop: "none"
               },
               "& .MuiCheckbox-root": {
                 color:
-                  theme === "dark" ? `#b7ebde !important` : `#000 !important`,
+                  theme === "dark" ? `#F9D341 !important` : `#000 !important`,
               },
               "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
                 color: `#fff !important`,

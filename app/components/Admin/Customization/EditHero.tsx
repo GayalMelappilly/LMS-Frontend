@@ -61,8 +61,7 @@ const EditHero: FC<Props> = (props: Props) => {
   return (
     <>
       <div className="w-full 1000px:flex items-center">
-        <div className="absolute top-[100px] 1000px:top-[unset] 1500px:h-[500px] 1500px:w-[500px] 1100px:h-[500px] 1100px:w-[500px] h-[50vh] w-[50vh] hero_animation rounded-[50%] 1100px:left-[18rem] 1500px:left-[21rem]"></div>
-        <div className="1000px:w-[40%] flex 1000px:min-h-screen items-center justify-end pt-[70px] 1000px:pt-[0] z-10">
+        <div className="1000px:w-[40%] flex 1000px:min-h-screen items-center justify-end pt-[70px] 1000px:pt-[0] z-10 ml-5">
           <div className="relative flex items-center justify-end">
             <img
               src={image}
@@ -106,7 +105,7 @@ const EditHero: FC<Props> = (props: Props) => {
             data?.layout?.banner?.title !== title ||
             data?.layout?.banner?.subtitle !== subTitle ||
             data?.layout?.banner?.image?.url !== image
-              ? "!cursor-pointer !bg-[#42d383]"
+              ? "!cursor-pointer !bg-emerald-400 dark:text-[#18181B]"
               : "!cursor-not-allowed"
           }
           !rounded absolute bottom-12 right-12`}

@@ -48,29 +48,29 @@ const AllInvoices = ({ isDashboard }: Props) => {
     ...(isDashboard
       ? []
       : [
-          { field: "userEmail", headerName: "Email", flex: 1 },
-          { field: "title", headerName: "Course Title", flex: 1 },
-        ]),
+        { field: "userEmail", headerName: "Email", flex: 1 },
+        { field: "title", headerName: "Course Title", flex: 1 },
+      ]),
     { field: "price", headerName: "Price", flex: 0.5 },
     ...(isDashboard
       ? [{ field: "created_at", headerName: "Created At", flex: 0.5 }]
       : [
-          {
-            field: " ",
-            headerName: "Email",
-            flex: 0.2,
-            renderCell: (params: any) => {
-              return (
-                <a href={`mailto:${params.row.userEmail}`}>
-                  <AiOutlineMail
-                    className="dark:text-white text-black"
-                    size={20}
-                  />
-                </a>
-              );
-            },
+        {
+          field: " ",
+          headerName: "Email",
+          flex: 0.2,
+          renderCell: (params: any) => {
+            return (
+              <a href={`mailto:${params.row.userEmail}`}>
+                <AiOutlineMail
+                  className="dark:text-white text-black mt-3"
+                  size={20}
+                />
+              </a>
+            );
           },
-        ]),
+        },
+      ]),
   ];
 
   const rows: any = [];
@@ -96,11 +96,14 @@ const AllInvoices = ({ isDashboard }: Props) => {
           <Box
             m={isDashboard ? "0" : "40px 0 0 0"}
             height={isDashboard ? "35vh" : "90vh"}
-            overflow={"hidden"}
             sx={{
+              boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
+              '&.Mui-dark': { boxShadow: '0px 3px 8px rgba(24, 24, 27, )' },
+              p: 2,
               "& .MuiDataGrid-root": {
-                border: "none",
                 outline: "none",
+                borderColor: isDashboard ? '#34D399' :'#FFFFFF',
+                borderWidth: '3px'
               },
               "& .css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon": {
                 color: theme === "dark" ? "#fff" : "#000",
@@ -124,25 +127,28 @@ const AllInvoices = ({ isDashboard }: Props) => {
               "& .name-column--cell": {
                 color: theme === "dark" ? "#fff" : "#000",
               },
-              "& .MuiDataGrid-columnHeaders": {
-                backgroundColor: theme === "dark" ? "#3e4396" : "#A4A9FC",
+              "& .MuiDataGrid-columnHeader": {
+                backgroundColor: theme === "dark" ? "#18181B" : "#A4A9FC",
                 borderBottom: "none",
                 color: theme === "dark" ? "#fff" : "#000",
               },
               "& .MuiDataGrid-virtualScroller": {
-                backgroundColor: theme === "dark" ? "#1F2A40" : "#F2F0F0",
+                backgroundColor: theme === "dark" ? "#18181B" : "#F2F0F0",
               },
               "& .MuiDataGrid-footerContainer": {
                 color: theme === "dark" ? "#fff" : "#000",
                 borderTop: "none",
-                backgroundColor: theme === "dark" ? "#3e4396" : "#A4A9FC",
+                backgroundColor: theme === "dark" ? "#18181B" : "#A4A9FC"
               },
               "& .MuiCheckbox-root": {
                 color:
-                  theme === "dark" ? `#b7ebde !important` : `#000 !important`,
+                  theme === "dark" ? `#F9D341 !important` : `#000 !important`,
               },
               "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
                 color: `#fff !important`,
+              },
+              "& ::-webkit-scrollbar": {
+                display: isDashboard ?  "none" : 'block',
               },
             }}
           >
