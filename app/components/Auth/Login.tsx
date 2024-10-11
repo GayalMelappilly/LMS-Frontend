@@ -53,7 +53,7 @@ const Login: FC<Props> = ({ setRoute, setOpen, refetch }) => {
     return (
         <div className='w-full'>
             <h1 className={`${styles.title}`}>
-                Login with Learnify
+                Login with <span className='dark:text-[#F9D341]'>Learnify</span>
             </h1>
             <br />
             <form onSubmit={handleSubmit}>
@@ -106,7 +106,7 @@ const Login: FC<Props> = ({ setRoute, setOpen, refetch }) => {
                     <input
                         type="submit"
                         value="Login"
-                        className={`${styles.button}`}
+                        className={`${styles.button} bg-emerald-400`}
                     />
                 </div>
                 <br />

@@ -83,7 +83,7 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
                 <div className='w-[95%] 800px:w-[92%] py-2 h-full'>
                     <div className="w-full h-[80px] flex items-center justify-between p-3">
                         <div>
-                            <Link href={'/'} className={'text-[25px] font-Poppins font-[500] text-black dark:text-[#F9D341] pl-5'}>
+                            <Link href={'/'} className={'text-[25px] font-Poppins font-[500] text-emerald-400 dark:text-[#F9D341] pl-5'}>
                                 Learnify
                             </Link>
                         </div>
@@ -108,8 +108,7 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
                                             alt=''
                                             width={30}
                                             height={30}
-                                            className='w-[30px] h-[30px] ml-4 cursor-pointer rounded-full'
-                                            style={{border: activeItem === 5 ? '2px solid #F9D341' : 'none'}}
+                                            className={`w-[30px] h-[30px] ml-4 cursor-pointer rounded-full ${activeItem === 5 ? `border-2 border-solid border-emerald-400 dark:border-[#F9D341]` : 'none'}`}
                                         />
                                     </Link>
                                 ) : (
@@ -137,8 +136,7 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
                                             alt=''
                                             width={30}
                                             height={30}
-                                            className='w-[30px] h-[30px] ml-4 cursor-pointer rounded-full'
-                                            style={{border: activeItem === 5 ? '2px solid #37a39a' : 'none'}}
+                                            className={`w-[30px] h-[30px] ml-4 cursor-pointer rounded-full ${activeItem === 5 ? `border-2 border-solid border-emerald-400 dark:border-[#F9D341]` : 'none'}`}
                                         />
                                     </Link>
                                 ) : (
@@ -152,7 +150,7 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
                                 <br />
                                 <br />
                                 <p className='text-[16px] px-2 pl-5 text-black dark:text-white'>
-                                    Copyright © 2024 eLearning
+                                    Copyright © 2024 Learnify
                                 </p>
                             </div>
                         </div>

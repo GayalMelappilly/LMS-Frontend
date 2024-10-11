@@ -56,11 +56,11 @@ const Hero: FC<Props> = (props) => {
                     placeholder='Search Courses...'
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    className='bg-transparent border dark:border-zinc-400 dark:border-2 dark:placeholder:text-[#ffffffdd] dark:placeholder:text-opacity-15 rounded-[12px] p-3 w-full h-full outline-none text-[#0000004e] dark:text-[#ffffffe6] text-[18px] font-Poppins'
+                    className='bg-transparent border dark:border-zinc-400 dark:border-2 dark:placeholder:text-[#ffffffdd] dark:placeholder:text-opacity-15 rounded-[12px] p-3 w-full h-full outline-none text-zinc-900 dark:text-[#ffffffe6] text-[18px] font-Poppins'
                   />
                   <div className='absolute flex items-center justify-center w-[50px] cursor-pointer h-[50px] 800px:h-[40px] right-0 top-0 rounded-r-[5px]'
                     onClick={handleSearch}>
-                    <BiSearch className='text-white dark:text-[#F9D341]' size={30} />
+                    <BiSearch className='text-emerald-500 dark:text-[#F9D341]' size={30} />
                   </div>
                 </div>
                 <br />
@@ -85,7 +85,7 @@ const Hero: FC<Props> = (props) => {
                     500K+ People already trusted us.{' '}
                     <Link
                       href='/courses'
-                      className='dark:text-yellow-500 text-[crimson]'
+                      className='dark:text-yellow-500 text-emerald-500'
                     >
                       View Courses
                     </Link>

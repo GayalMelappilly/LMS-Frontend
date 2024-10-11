@@ -31,7 +31,7 @@ const About = (props: Props) => {
   return (
     <div>
       <br />
-      <h1 className={`${styles.title} 800px:!text-[45px]`}>About <span className='text-gradient'>Learnify</span></h1>
+      <h1 className={`${styles.title} 800px:!text-[45px]`}>About <span className='text-gradient dark:from-yellow-400 dark:to-orange-500 bg-gradient-to-r from-emerald-400 to-cyan-400'>Learnify</span></h1>
       <br />
       <div className='text-[18px] text-black dark:text-white font-Poppins w-[95%] 800px:w-[85%] m-auto'>
         <p className=''>
@@ -52,12 +52,12 @@ const About = (props: Props) => {
           ))}
         </ul>
         <br />
-        <h1 className={`${styles.title} 800px:!text-[45px]`}>Why Choose <span className='text-gradient'>Learnify</span></h1>
+        <h1 className={`${styles.title} 800px:!text-[45px]`}>Why Choose <span className='text-gradient dark:from-yellow-400 dark:to-orange-500 bg-gradient-to-r from-emerald-400 to-cyan-400'>Learnify</span></h1>
         <br />
         <p className='mx-10'>In a world where continuous learning is essential for growth and success, Learnify offers an all-in-one solution for delivering, consuming, and monetizing educational content. Our commitment to innovation and user experience ensures that both learners and educators have the tools they need to thrive. From individual professionals looking to share their knowledge to institutions managing large-scale training programs, Learnify is the platform of choice for modern education.</p>
           <br />
           <br />
-        <p className={`${styles.title}text-center 800px:!text-[45px] font-semibold text-green-501`}>Join <span className='text-gradient'>Learnify</span> and start your journey!</p>
+        <p className={`${styles.title}text-center 800px:!text-[45px] font-semibold text-green-501`}>Join <span className='text-gradient dark:from-yellow-400 dark:to-orange-500 bg-gradient-to-r from-emerald-400 to-cyan-400'>Learnify</span> and start your journey!</p>
         <br />
         <br />
         <br />

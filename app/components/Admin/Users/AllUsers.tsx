@@ -153,7 +153,7 @@ const AllUsers: FC<Props> = ({ isTeam }) => {
           {isTeam && (
             <div className="w-full flex justify-end">
               <div
-                className={`${styles.button} !w-[200px] !rounded-[10px] dark:bg-[#57c7a3] !h-[35px] dark:border dark:border-[#ffffff6c]`}
+                className={`${styles.button} !w-[200px] !rounded-[10px] dark:bg-emerald-400 !h-[35px]`}
                 onClick={() => setActive(!active)}
               >
                 Add New Member

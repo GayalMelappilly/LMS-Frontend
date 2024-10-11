@@ -20,7 +20,7 @@ type Props = {
 const SideBarProfile: FC<Props> = ({ user, active, avatar, setActive, logOutHandler }) => {
     return (
         <div className='w-full'>
-            <div className={`w-full flex items-center rounded-t-[5px] px-3 py-4 cursor-pointer ${active === 1 ? `dark:bg-zinc-800 bg-white` : 'bg-transparent'
+            <div className={`w-full flex items-center rounded-t-[5px] px-3 py-4 cursor-pointer ${active === 1 ? `dark:bg-zinc-800 bg-gray-200` : 'bg-transparent'
                 }`}
                 onClick={() => setActive(1)}>
                 <Image
@@ -33,14 +33,14 @@ const SideBarProfile: FC<Props> = ({ user, active, avatar, setActive, logOutHand
                 <h5 className='pl-2 800px:block hidden font-Poppins text-black dark:text-white'>My Account</h5>
             </div>
 
-            <div className={`w-full flex items-center px-3 py-4 cursor-pointer ${active === 2 ? `dark:bg-zinc-800 bg-white` : 'bg-transparent'
+            <div className={`w-full flex items-center px-3 py-4 cursor-pointer ${active === 2 ? `dark:bg-zinc-800 bg-gray-200` : 'bg-transparent'
                 }`}
                 onClick={() => setActive(2)}>
                 <RiLockPasswordLine size={20} className='dark:text-white text-black' />
                 <h5 className='pl-2 800px:block hidden font-Poppins text-black dark:text-white'>Change Password</h5>
             </div>
 
-            <div className={`w-full flex items-center px-3 py-4 cursor-pointer ${active === 3 ? `dark:bg-zinc-800 bg-white` : 'bg-transparent'
+            <div className={`w-full flex items-center px-3 py-4 cursor-pointer ${active === 3 ? `dark:bg-zinc-800 bg-gray-200` : 'bg-transparent'
                 }`}
                 onClick={() => setActive(3)}>
                 <SiCoursera size={20} className='dark:text-white text-black' />
@@ -49,7 +49,7 @@ const SideBarProfile: FC<Props> = ({ user, active, avatar, setActive, logOutHand
 
             {
                 user.role === 'admin' && (
-                    <Link className={`w-full flex items-center px-3 py-4 cursor-pointer ${active === 6 ? `dark:bg-zinc-800 bg-white` : 'bg-transparent'
+                    <Link className={`w-full flex items-center px-3 py-4 cursor-pointer ${active === 6 ? `dark:bg-zinc-800 bg-gray-200` : 'bg-transparent'
                         }`}
                         href={'/admin'}
                     >
@@ -59,7 +59,7 @@ const SideBarProfile: FC<Props> = ({ user, active, avatar, setActive, logOutHand
                 )
             }
 
-            <div className={`w-full flex items-center px-3 py-4 cursor-pointer ${active === 4 ? `dark:bg-zinc-800 bg-white` : 'bg-transparent'
+            <div className={`w-full flex items-center px-3 py-4 cursor-pointer ${active === 4 ? `dark:bg-zinc-800 bg-gray-200` : 'bg-transparent'
                 }`}
                 onClick={() => logOutHandler()}>
                 <AiOutlineLogout size={20} className='dark:text-white text-black' />

@@ -69,7 +69,7 @@ const ProfileInfo: FC<Props> = ({avatar, user}) => {
                     alt=''
                     width={120} 
                     height={120}
-                    className='w-[120px] h-[120px] rounded-full cursor-pointer border-[3px] border-[#F9D341]'
+                    className='w-[120px] h-[120px] rounded-full cursor-pointer border-[3px] border-emerald-500 dark:border-[#F9D341]'
                 />
                 <input 
                     type="file"

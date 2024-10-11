@@ -67,7 +67,7 @@ const Page = (props: Props) => {
             <div className="w-full flex items-center flex-wrap">
               <div
                 className={`h-[35px] ${
-                  category === "All" ? "bg-[#F9D341] dark:text-black" : "border-[#F9D341] border-2"
+                  category === "All" ? "bg-emerald-400 dark:bg-[#F9D341] text-black" : "border-emerald-400 text-black dark:text-white dark:border-[#F9D341] border-2"
                 } m-3 px-4 rounded-[30px] flex items-center justify-center font-Poppins cursor-pointer`}
                 onClick={() => setCategory("All")}
               >
@@ -79,8 +79,8 @@ const Page = (props: Props) => {
                     <div
                       className={`h-[35px] ${
                         category === item.title
-                          ? "bg-[#F9D341] dark:text-black"
-                          : "border-[#F9D341] border-2"
+                          ? "bg-emerald-400 dark:bg-[#F9D341] text-black"
+                          : "border-emerald-400 dark:border-[#F9D341] text-black dark:text-white border-2"
                       } m-3 px-4 rounded-[30px] flex items-center justify-center font-Poppins cursor-pointer`}
                       onClick={() => setCategory(item.title)}
                     >

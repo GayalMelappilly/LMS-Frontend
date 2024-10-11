@@ -54,13 +54,11 @@ body {
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, #F9D341 2.34%, #F9D341 100.78%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-fill-color: transparent;
 }
-
 
 @keyframes changeBackgroundColor {
   0%, 100% {

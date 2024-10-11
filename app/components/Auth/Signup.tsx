@@ -57,7 +57,7 @@ const Signup: FC<Props> = ({ setRoute }) => {
     return (
         <div className='w-full'>
             <h1 className={`${styles.title}`}>
-                Get started with Learnify
+                Get started with <span className='dark:text-[#F9D341]'>Learnify</span>
             </h1>
             <br />
             <form onSubmit={handleSubmit}>
@@ -98,7 +98,7 @@ const Signup: FC<Props> = ({ setRoute }) => {
                         Enter your password
                     </label>
                     <input
-                        type="password"
+                        type={`${show ? 'text' : 'password'}`}
                         name='password'
                         value={values.password}
                         onChange={handleChange}
@@ -127,7 +127,7 @@ const Signup: FC<Props> = ({ setRoute }) => {
                     <input
                         type="submit"
                         value="Sign Up"
-                        className={`${styles.button}`}
+                        className={`${styles.button} !bg-emerald-400`}
                     />
                 </div>
                 <br />

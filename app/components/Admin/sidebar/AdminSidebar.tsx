@@ -78,10 +78,10 @@ const Sidebar = () => {
           backgroundColor: "transparent !important",
         },
         "& .pro-inner-item:hover": {
-          color: "#F9D341 !important",
+          color: `${theme === 'dark' ? '#F9D341 !important' : '#10B981 !important'}`,
         },
         "& .pro-menu-item.active": {
-          color: "#F9D341 !important",
+          color: `${theme === 'dark' ? '#F9D341 !important' : '#10B981 !important'}`,
         },
         "& .pro-inner-item": {
           padding: "5px 35px 5px 20px !important",
