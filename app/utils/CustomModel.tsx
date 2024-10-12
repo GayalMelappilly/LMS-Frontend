@@ -19,7 +19,7 @@ const CustomModel: FC<Props> = ({open, setOpen, setRoute, component:Component, r
         aria-describedby="modal-modal-description"
     >
         <Box
-            className='absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[450px] bg-white dark:bg-zinc-900 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] dark:shadow-zinc-950 shadow-zinc-200 rounded-[8px] p-4 outline-none'
+            className='absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[450px] bg-white dark:bg-zinc-900 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] dark:shadow-zinc-950 shadow-zinc-600 rounded-[8px] p-4 outline-none'
         >
             <Component setOpen={setOpen} setRoute={setRoute} refetch={refetch} />
         </Box>

@@ -139,7 +139,7 @@ const EditFaq = (props: Props) => {
                     />
                     <span className="ml-6 flex-shrink-0">
                       <AiOutlineDelete
-                        className="dark:text-white text-black text-[18px] cursor-pointer"
+                        className="text-red-600 text-[28px] cursor-pointer hover:animate-pulse"
                         onClick={() => {
                           setQuestions((prevQuestions) =>
                             prevQuestions.filter((item) => item._id !== q._id)

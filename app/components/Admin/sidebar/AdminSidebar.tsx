@@ -143,7 +143,7 @@ const Sidebar = () => {
                   style={{
                     cursor: "pointer",
                     borderRadius: "50%",
-                    border: "3px solid #F9D341",
+                    border: `3px solid ${theme === 'dark' ? "#F9D341" : '#34D399'}`,
                   }}
                 />
               </Box>

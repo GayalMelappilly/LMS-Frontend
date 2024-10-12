@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
 import { BiMoon, BiSun } from 'react-icons/bi'
+import { IoMdMoon } from 'react-icons/io'
 
 export const ThemeSwitcher = () => {
     const [mounted, setMounted] = useState(false)
@@ -17,9 +18,9 @@ export const ThemeSwitcher = () => {
         <div className="flex items-center justify-center mx-4">
             {
                 theme === 'light' ? 
-                <BiMoon className='cursor-pointer' fill='black' size={25} onClick={()=> setTheme('dark')} />
+                <IoMdMoon className='cursor-pointer fill-purple-700' size={25} onClick={()=> setTheme('dark')} />
                 :
-                <BiSun className='cursor-pointer' size={25} onClick={()=> setTheme('light')} />
+                <BiSun className='cursor-pointer text-yellow-400' size={25} onClick={()=> setTheme('light')} />
             }
         </div>
     )

@@ -153,7 +153,7 @@ const AllUsers: FC<Props> = ({ isTeam }) => {
           {isTeam && (
             <div className="w-full flex justify-end">
               <div
-                className={`${styles.button} !w-[200px] !rounded-[10px] dark:bg-emerald-400 !h-[35px]`}
+                className={`${styles.button} !w-[200px] !rounded-[10px] bg-emerald-400 !h-[35px]`}
                 onClick={() => setActive(!active)}
               >
                 Add New Member
@@ -163,11 +163,16 @@ const AllUsers: FC<Props> = ({ isTeam }) => {
           <Box
             m="40px 0 0 0"
             height="80vh"
+            borderRadius='10px'
             sx={{
+              boxShadow: 'rgba(0, 0, 0, 0.44) 0px 3px 8px',
+              '&.Mui-dark': { boxShadow: '0px 3px 8px rgba(24, 24, 27, )' },
+              p: 0,
               "& .MuiDataGrid-root": {
                 outline: "none",
-                borderColor: theme === 'dark' ? '#FFFFFF' :'#FFFFFF',
-                borderWidth: '3px'
+                borderColor: `${theme === 'dark' ? "#18181B" : "#FFFFFF"}`,
+                borderWidth: '3px',
+                borderRadius: '10px',
               },
               "& .css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon": {
                 color: theme === "dark" ? "#fff" : "#000",
@@ -177,36 +182,32 @@ const AllUsers: FC<Props> = ({ isTeam }) => {
               },
               "& .MuiDataGrid-row": {
                 color: theme === "dark" ? "#fff" : "#000",
-                borderBottom:
-                  theme === "dark"
-                    ? "1px solid #ffffff30 !important"
-                    : "1px solid #ccc !important",
               },
               "& .MuiTablePagination-root": {
                 color: theme === "dark" ? "#fff" : "#000",
               },
               "& .MuiDataGrid-cell": {
-                borderBottom: "none!important",
+                borderTop: `${theme === 'dark' ? '2px solid #262525!important' : '2px solid #f2f2f2!important'}`,
               },
               "& .name-column--cell": {
                 color: theme === "dark" ? "#fff" : "#000",
               },
               "& .MuiDataGrid-columnHeader": {
-                backgroundColor: theme === "dark" ? "#18181B" : "#A4A9FC",
-                borderBottom: "none",
+                borderBottom: `${theme === 'dark' ? '2px solid #424242!important' : '2px solid #f2f2f2!important'}`,
+                backgroundColor: theme === "dark" ? "#18181B" : "#FFFFFF",
                 color: theme === "dark" ? "#fff" : "#000",
               },
               "& .MuiDataGrid-virtualScroller": {
-                backgroundColor: theme === "dark" ? "#18181B !important" : "#F2F0F0 !important",
+                backgroundColor: theme === "dark" ? "#18181B" : "#FFFFFF",
               },
               "& .MuiDataGrid-footerContainer": {
-                backgroundColor: theme === "dark" ? "#18181B" : "#A4A9FC",
                 color: theme === "dark" ? "#fff" : "#000",
-                borderTop: "none"
+                borderTop: "none",
+                backgroundColor: theme === "dark" ? "#18181B" : "#FFFFFF"
               },
               "& .MuiCheckbox-root": {
                 color:
-                  theme === "dark" ? `#F9D341 !important` : `#000 !important`,
+                  theme === "dark" ? `#FFF !important` : `#000 !important`,
               },
               "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
                 color: `#fff !important`,
@@ -222,7 +223,7 @@ const AllUsers: FC<Props> = ({ isTeam }) => {
               aria-labelledby="modal-modal-title"
               aria-describedby="modal-modal-description"
             >
-              <Box className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[450px] bg-white dark:bg-slate-900 rounded-[8px] shadow p-4 outline-none">
+              <Box className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[450px] bg-white rounded-[8px] dark:bg-zinc-900 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] dark:shadow-zinc-950 p-4 outline-none">
                 <h1 className={`${styles.title}`}>Add New Member</h1>
                 <div className="mt-4">
                   <input
@@ -250,7 +251,7 @@ const AllUsers: FC<Props> = ({ isTeam }) => {
                   </select>
                   <br />
                   <div
-                    className={`${styles.button} my-6 !h-[30px]`}
+                    className={`${styles.button} my-6 !h-[30px] bg-emerald-500`}
                     onClick={handleSubmit}
                   >
                     Submit
@@ -267,19 +268,19 @@ const AllUsers: FC<Props> = ({ isTeam }) => {
               aria-labelledby="modal-modal-title"
               aria-describedby="modal-modal-description"
             >
-              <Box className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[450px] bg-white dark:bg-slate-900 rounded-[8px] shadow p-4 outline-none">
+              <Box className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[450px] bg-white rounded-[8px] dark:bg-zinc-900 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] dark:shadow-zinc-950 p-4 outline-none">
                 <h1 className={`${styles.title}`}>
                   Are you sure you want to delete this user?
                 </h1>
-                <div className="flex w-full items-center justify-between mb-6 mt-4">
+                <div className="flex w-full items-center justify-between mb-6 mt-4 px-2">
                   <div
-                    className={`${styles.button} !w-[120px] h-[30px] bg-[#57c7a3]`}
+                    className={`${styles.button} !w-[180px] h-[30px] bg-emerald-500 hover:bg-emerald-600`}
                     onClick={() => setOpen(!open)}
                   >
                     Cancel
                   </div>
                   <div
-                    className={`${styles.button} !w-[120px] h-[30px] bg-[#d63f3f]`}
+                    className={`${styles.button} !w-[180px] h-[30px] bg-red-600 hover:bg-red-700`}
                     onClick={handleDelete}
                   >
                     Delete

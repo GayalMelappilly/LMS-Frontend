@@ -28,12 +28,13 @@ input::-webkit-inner-spin-button {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #262626;
+  background: #6f6f6ffb;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #c19a02;
+  background: #9b9b9b;
+  border-radius: 10px;
 }
 
 /* Handle on hover */

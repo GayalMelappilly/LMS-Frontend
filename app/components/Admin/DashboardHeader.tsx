@@ -77,12 +77,12 @@ const DashboardHeader: FC<Props> = ({ open, setOpen }) => {
                     {
                         notification && notification.map((item: any, index: number) => (
                             <>
-                                <div key={index} className="dark:bg-zinc-900 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] dark:shadow-zinc-950 shadow-zinc-200 bg-[#00000013] font-Poppins my-2 rounded-xl p-1">
+                                <div key={index} className="dark:bg-zinc-900 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] dark:shadow-zinc-950 shadow-zinc-200 bg-zinc-50 font-Poppins my-2 rounded-xl p-1">
                                     <div className="w-full flex items-center justify-between p-2">
                                         <p className="text-black dark:text-white">
                                             {item.title}
                                         </p>
-                                        <p className="text-black dark:text-[#F9D341] dark:hover:text-red-600 cursor-pointer"
+                                        <p className="dark:text-[#F9D341] dark:hover:text-red-600 text-emerald-400 hover:text-red-600 cursor-pointer"
                                             onClick={() => handleNotificationStatusChange(item._id)}>
                                             Mark as read
                                         </p>

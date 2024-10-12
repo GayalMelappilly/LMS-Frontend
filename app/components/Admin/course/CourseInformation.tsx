@@ -174,13 +174,13 @@ const CourseInformation: FC<Props> = ({
                 setCourseInfo({ ...courseInfo, categories: e.target.value })
               }
             >
-              <option className="dark:bg-[#000] text-[#fff]" value="">
+              <option className="dark:bg-[#000] dark:text-[#fff]" value="">
                 Select Category
               </option>
               {categories &&
                 categories.map((item: any) => (
                   <option
-                    className="dark:bg-[#000] text-[#fff]"
+                    className="dark:bg-zinc-900 dark:text-[#fff]"
                     value={item.title}
                     key={item._id}
                   >
@@ -261,7 +261,7 @@ const CourseInformation: FC<Props> = ({
           <input
             type="submit"
             value="Next"
-            className="w-full 800px:w-[180px] h-[40px] dark:bg-emerald-400 text-center text-[#fff] dark:text-[#18181B] rounded mt-8 cursor-pointer"
+            className="w-full 800px:w-[180px] h-[40px] bg-emerald-400 text-center text-[#fff] dark:text-[#18181B] rounded mt-8 cursor-pointer"
           />
         </div>
         <br />

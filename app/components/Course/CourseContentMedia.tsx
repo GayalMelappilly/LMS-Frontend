@@ -213,7 +213,7 @@ const CourseContentMedia = ({
         <div
           className={`${
             styles.button
-          } text-white  !w-[unset] !min-h-[40px] !py-[unset] ${
+          } text-white bg-emerald-400 !w-[unset] !min-h-[40px] !py-[unset] ${
             activeVideo === 0 && "!cursor-no-drop opacity-[.8]"
           }`}
           onClick={() =>
@@ -226,7 +226,7 @@ const CourseContentMedia = ({
         <div
           className={`${
             styles.button
-          } !w-[unset] text-white  !min-h-[40px] !py-[unset] ${
+          } !w-[unset] text-white bg-emerald-400  !min-h-[40px] !py-[unset] ${
             data.length - 1 === activeVideo && "!cursor-no-drop opacity-[.8]"
           }`}
           onClick={() =>
@@ -245,13 +245,13 @@ const CourseContentMedia = ({
         {data[activeVideo].title}
       </h1>
       <br />
-      <div className="w-full p-4 flex items-center justify-between bg-slate-500 bg-opacity-20 backdrop-blur shadow-[bg-slate-700] rounded shadow-inner">
+      <div className="w-full p-4 flex items-center justify-between bg-slate-200 bg-opacity-20 backdrop-blur dark:bg-zinc-900 shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] dark:shadow-zinc-950 shadow-zinc-200 rounded">
         {["Overview", "Resources", "Q&A", "Reviews"].map((text, index) => (
           <h5
             key={index}
             className={`800px:text-[20px] cursor-pointer ${
               activeBar === index
-                ? "text-red-500"
+                ? "text-[crimson]"
                 : "dark:text-white text-black"
             }`}
             onClick={() => setactiveBar(index)}
@@ -399,7 +399,7 @@ const CourseContentMedia = ({
                   <div
                     className={`${
                       styles.button
-                    } !w-[120px] !h-[40px] text-[18px] mt-5 800px:mr-0 mr-2 ${
+                    } !w-[120px] !h-[40px] bg-emerald-400 text-[18px] mt-5 800px:mr-0 mr-2 ${
                       reviewCreationLoading && "cursor-no-drop"
                     }`}
                     onClick={

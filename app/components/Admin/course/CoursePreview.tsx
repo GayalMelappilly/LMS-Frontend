@@ -35,7 +35,7 @@ const CoursePreview: FC<Props> = ({
   };
 
   return (
-    <div className="w-[90%] m-auto py-5 mb-5">
+    <div className="w-[90%] m-auto py-5 mb-5 text-zinc-900 dark:text-white">
       <div className="w-full relative">
         <div className="w-full mt-10">
           <CoursePlayer
@@ -88,7 +88,7 @@ const CoursePreview: FC<Props> = ({
           <h1 className="text-[25px] font-Poppins font-[600]">
             {courseData?.name}
           </h1>
-          <div className="flex items-center justify-between pt-3">
+          <div className="flex items-center justify-between pt-3 text-zinc-900 dark:text-white">
             <div className="flex items-center">
               <Ratings rating={0} />
               <h5>0 Reviews</h5>
@@ -96,7 +96,7 @@ const CoursePreview: FC<Props> = ({
             <h5>0 Students</h5>
           </div>
           <br />
-          <h1 className="text-[25px] font-Poppins font-[600]">
+          <h1 className="text-[25px] font-Poppins font-[600] text-zinc-900 dark:text-white">
             What you will learn from this course?
           </h1>
         </div>
