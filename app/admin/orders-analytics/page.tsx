@@ -1,9 +1,9 @@
 'use client'
 import React from 'react'
 import AdminSidebar from "../../components/Admin/sidebar/AdminSidebar";
-import Heading from '../../../app/utils/Heading';
+import Heading from '../../utils/Heading';
 import OrdersAnalytics from "../../components/Admin/Analytics/OrderAnalytics";
-import DashboardHeader from '../../../app/components/Admin/DashboardHeader';
+import DashboardHeader from '../../components/Admin/DashboardHeader';
 
 type Props = {}
 
