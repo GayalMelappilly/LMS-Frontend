@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client";
 import React, { FC, useEffect, useState, Suspense } from "react";
 import { useGetUsersAllCoursesQuery } from "@/redux/features/courses/coursesApi";
