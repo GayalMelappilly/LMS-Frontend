@@ -8,19 +8,20 @@ import ProfileInfo from './ProfileInfo'
 import ChangePassword from './ChangePassword'
 import CourseCard from '../Course/CourseCard'
 import { useGetUsersAllCoursesQuery } from '@/redux/features/courses/coursesApi'
+import { useRouter } from 'next/navigation'
 
 type Props = {
     user: any
-    setRoute: (route: string) => void
 }
 
-const Profile: FC<Props> = ({ user, setRoute }) => {
+const Profile: FC<Props> = ({ user }) => {
 
     const [scroll, setScroll] = useState(false)
     const [avatar, setAvatar] = useState(null)
     const [active, setActive] = useState(1)
     const [logout, setLogout] = useState(false)
     const [courses, setCourses] = useState([])
+    const router = useRouter()
 
     const { data, isLoading } = useGetUsersAllCoursesQuery(undefined, {});
 
@@ -31,7 +32,7 @@ const Profile: FC<Props> = ({ user, setRoute }) => {
     const logOutHandler = async () => {
         setLogout(true)
         await signOut()
-        setRoute('/')
+        router.push('/')
     }
 
     if (typeof window !== "undefined") {
