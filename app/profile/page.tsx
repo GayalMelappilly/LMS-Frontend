@@ -34,6 +34,7 @@ const Page: FC<Props> = () => {
                 />
                 <Profile
                     user={user}
+                    setRoute={setRoute}
                 />
                 <Footer />
             </Protected>

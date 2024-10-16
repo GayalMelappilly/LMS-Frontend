@@ -11,11 +11,12 @@ import { useGetUsersAllCoursesQuery } from '@/redux/features/courses/coursesApi'
 
 type Props = {
     user: any
+    setRoute: (route: string) => void
 }
 
-const Profile: FC<Props> = ({ user }) => {
+const Profile: FC<Props> = ({ user, setRoute }) => {
 
-    const [scroll, serScroll] = useState(false)
+    const [scroll, setScroll] = useState(false)
     const [avatar, setAvatar] = useState(null)
     const [active, setActive] = useState(1)
     const [logout, setLogout] = useState(false)
@@ -29,16 +30,16 @@ const Profile: FC<Props> = ({ user }) => {
 
     const logOutHandler = async () => {
         setLogout(true)
+        setRoute('/')
         await signOut()
-
     }
 
     if (typeof window !== "undefined") {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 85) {
-                serScroll(true)
+                setScroll(true)
             } else {
-                serScroll(false)
+                setScroll(false)
             }
         })
     }
