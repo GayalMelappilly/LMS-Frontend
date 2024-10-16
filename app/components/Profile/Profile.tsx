@@ -8,7 +8,7 @@ import ProfileInfo from './ProfileInfo'
 import ChangePassword from './ChangePassword'
 import CourseCard from '../Course/CourseCard'
 import { useGetUsersAllCoursesQuery } from '@/redux/features/courses/coursesApi'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 
 type Props = {
     user: any
@@ -32,7 +32,9 @@ const Profile: FC<Props> = ({ user }) => {
     const logOutHandler = async () => {
         setLogout(true)
         await signOut().then(()=>{
-            router.push('/')
+            setTimeout(() => {
+                router.push('/');
+            }, 2000);
         })
     }
 
