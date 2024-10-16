@@ -59,12 +59,13 @@ const SideBarProfile: FC<Props> = ({ user, active, avatar, setActive, logOutHand
                 )
             }
 
-            <div className={`w-full flex items-center px-3 py-4 cursor-pointer ${active === 4 ? `dark:bg-zinc-800 bg-gray-200` : 'bg-transparent'
+            <Link className={`w-full flex items-center px-3 py-4 cursor-pointer ${active === 4 ? `dark:bg-zinc-800 bg-gray-200` : 'bg-transparent'
                 }`}
+                href={'/'}
                 onClick={() => logOutHandler()}>
                 <AiOutlineLogout size={20} className='dark:text-white text-black' />
                 <h5 className='pl-2 800px:block hidden font-Poppins text-black dark:text-white'>Logout</h5>
-            </div>
+            </Link>
         </div>
     )
 }
