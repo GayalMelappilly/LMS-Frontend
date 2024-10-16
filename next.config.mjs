@@ -5,6 +5,8 @@ const nextConfig = {
     },
     experimental: {
         missingSuspenseWithCSRBailout: false,
+        reactRoot: true,
+        suppressHydrationWarning: true
     },
 };
 
