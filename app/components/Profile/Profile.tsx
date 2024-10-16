@@ -8,7 +8,7 @@ import ProfileInfo from './ProfileInfo'
 import ChangePassword from './ChangePassword'
 import CourseCard from '../Course/CourseCard'
 import { useGetUsersAllCoursesQuery } from '@/redux/features/courses/coursesApi'
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/router'
 
 type Props = {
     user: any
