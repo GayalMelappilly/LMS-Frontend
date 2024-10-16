@@ -8,13 +8,13 @@ import ProfileInfo from './ProfileInfo'
 import ChangePassword from './ChangePassword'
 import CourseCard from '../Course/CourseCard'
 import { useGetUsersAllCoursesQuery } from '@/redux/features/courses/coursesApi'
+import { redirect } from "next/navigation";
 
 type Props = {
     user: any
-    setRoute: (route: string) => void
 }
 
-const Profile: FC<Props> = ({ user, setRoute }) => {
+const Profile: FC<Props> = ({ user }) => {
 
     const [scroll, setScroll] = useState(false)
     const [avatar, setAvatar] = useState(null)
@@ -30,8 +30,8 @@ const Profile: FC<Props> = ({ user, setRoute }) => {
 
     const logOutHandler = async () => {
         setLogout(true)
-        setRoute('/')
         await signOut()
+        redirect('/')
     }
 
     if (typeof window !== "undefined") {
