@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Learnify Frontend
+
+Learnify is a dynamic Learning Management System (LMS) that allows users to create, sell, and enroll in courses. The frontend of Learnify is built with Next.js, TypeScript, and Tailwind CSS, providing a sleek, responsive, and interactive interface for learners and instructors.
+
+## Features
+
+- **Course browsing**: Users can browse available courses, view detailed information, and enroll easily.
+- **Authentication**: Secure login and registration system for students and instructors.
+- **Course creation**: Instructors can create, update, and manage their courses.
+- **Real-time notifications**: Users are notified in real time about updates or new content through Socket.io.
+- **Responsive design**: Fully responsive design to ensure a smooth experience on desktops, tablets, and mobile devices.
+- **Payment integration**: Stripe integration for secure payments while purchasing courses.
+- **User profiles**: Users can manage their profiles, view enrolled courses, and track learning progress.
+
+## Tech Stack
+
+- **Next.js**: React framework for building the user interface.
+- **TypeScript**: Typed superset of JavaScript for a robust and scalable codebase.
+- **Tailwind CSS**: Utility-first CSS framework for styling.
+- **Socket.io**: Real-time communication library for notifications.
+- **Redux**: State management for managing user and course data.
+- **Cloudinary**: Cloud-based service for managing images and videos used in courses.
 
 ## Getting Started
 
-First, run the development server:
+To get a local copy up and running, follow these steps.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Node.js** (v16 or higher)
+- **Yarn** (recommended) or **npm**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The following environment variables need to be set for the Learnify frontend to work properly:
 
-## Learn More
+| Variable                     | Description                                |
+| ---------------------------- | ------------------------------------------ |
+| `NEXT_PUBLIC_SERVER_URI`      | The URI of the backend API                 |
+| `NEXT_PUBLIC_SOCKET_SERVER_URI` | The URI of the socket server              |
+| `GOOGLE_CLIENT_ID`            | Google OAuth Client ID                     |
+| `GOOGLE_CLIENT_SECRET`        | Google OAuth Client Secret                 |
+| `GITHUB_CLIENT_ID`            | GitHub OAuth Client ID                     |
+| `GITHUB_CLIENT_SECRET`        | GitHub OAuth Client Secret                 |
+| `SECRET`                      | Secret key for session encryption          |
 
-To learn more about Next.js, take a look at the following resources:
+> **Note:** Make sure to add these environment variables to your `.env.local` file in the root directory of your project.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/GayalMelappilly/LMS-Frontend.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd LMS-Frontend
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Set up environment variables.
+5. Run the development server:
+   ```bash
+   npm run dev
+   ```   
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The frontend is deployed using **Vercel** for seamless CI/CD.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+To deploy your own copy, follow these steps:
+
+1. **Fork** the repository.
+2. **Connect** the repository to your Vercel account.
+3. **Add** your environment variables in the Vercel dashboard.
+4. **Deploy** the application.
+
+## Contributing
+
+We welcome contributions to Learnify! If you have suggestions, fixes, or improvements, feel free to open a pull request.
+
+### How to Contribute
+
+1. **Fork** the repository.
+2. **Create a new branch**:
+   ```bash
+   git checkout -b feature-branch
+   ```
+3. Make your changes.
+4. Commit your changes:
+  ```bash
+  git commit -am 'Add feature'
+  ```
+5. Push to your branch:
+  ```bash
+  git push origin feature-branch
+  ```
+6. Open a pull request.
+
+
+## Acknowledgements
+
+- **Next.js**: for providing an amazing framework for building React apps.
+- **Tailwind CSS**: for enabling fast and responsive UI development.
+- **Stripe**: for secure payment integration.
+- **Socket.io**: for real-time functionality.
+- **Cloudinary**: for seamless media management.
+
